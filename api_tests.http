@@ -1,0 +1,542 @@
+### Health Check
+GET http://localhost:8080/api/v1/health
+
+###
+# --- AUTHENTICATION ---
+###
+
+### Login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "123456"
+}
+
+###
+# Note: For the requests below, replace {{token}} with the JWT token received from login
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyb2xlIjoiIiwiZXhwIjoxNzc2MjczNzEwLCJpYXQiOjE3NzYyNzI4MTB9.Vdj13EItmlalfFSh42G3Qx37tfDAmc1sGgr4jsvCBZQ
+###
+# --- USER MANAGEMENT ---
+###
+
+### Get Current User (Me)
+GET http://localhost:8080/api/v1/auth/users/me
+Authorization: Bearer {{token}}
+
+### List Users
+GET http://localhost:8080/api/v1/auth/users
+Authorization: Bearer {{token}}
+
+### Get User by ID
+GET http://localhost:8080/api/v1/auth/users/1
+Authorization: Bearer {{token}}
+
+###
+# --- PARTNER MANAGEMENT ---
+###
+
+### List Suppliers
+GET http://localhost:8080/api/v1/partners/suppliers
+Authorization: Bearer {{token}}
+
+### List Customers
+GET http://localhost:8080/api/v1/partners/customers
+Authorization: Bearer {{token}}
+
+### List Partner Groups
+GET http://localhost:8080/api/v1/partners/partner-groups
+Authorization: Bearer {{token}}
+
+### List Districts
+GET http://localhost:8080/api/v1/partners/districts
+Authorization: Bearer {{token}}
+
+### List Thanas
+GET http://localhost:8080/api/v1/partners/thanas
+Authorization: Bearer {{token}}
+
+### List Tax Brackets
+GET http://localhost:8080/api/v1/partners/tax-brackets
+Authorization: Bearer {{token}}
+
+###
+# --- ROLE & PERMISSION MANAGEMENT ---
+###
+
+### List Roles
+GET http://localhost:8080/api/v1/auth/roles
+Authorization: Bearer {{token}}
+
+### List Permissions
+GET http://localhost:8080/api/v1/auth/permissions
+Authorization: Bearer {{token}}
+
+### List Departments
+GET http://localhost:8080/api/v1/auth/departments
+Authorization: Bearer {{token}}
+
+### List Designations
+GET http://localhost:8080/api/v1/auth/designations
+Authorization: Bearer {{token}}
+
+### List Offices
+GET http://localhost:8080/api/v1/auth/offices
+Authorization: Bearer {{token}}
+
+###
+# --- AUDIT & TRANSACTION LOGS ---
+###
+
+### List Transaction History
+GET http://localhost:8080/api/v1/audit/transaction-history
+Authorization: Bearer {{token}}
+
+###
+# --- PRICE TYPE MANAGEMENT ---
+###
+
+### List Price Types
+GET http://localhost:8080/api/v1/partners/price-types
+Authorization: Bearer {{token}}
+
+###
+
+# --- SALES REPRESENTATIVE MANAGEMENT ---
+GET http://localhost:8080/api/v1/partners/sales-representatives
+Authorization: Bearer {{token}}
+
+
+###
+# ==========================================
+# PARTNER MODULE: PRICE TYPES & SALES REPS
+# ==========================================
+
+### Create Price Type
+POST http://localhost:8080/api/v1/partners/price-types
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Wholesale Price",
+    "description": "Standard discounted pricing for bulk purchases"
+}
+
+### Get All Price Types
+GET http://localhost:8080/api/v1/partners/price-types
+Authorization: Bearer {{token}}
+
+### Create Sales Representative
+POST http://localhost:8080/api/v1/partners/sales-representatives
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "mobile": "01711223344",
+    "email": "johndoe@example.com",
+    "commission_rate": 5.50
+}
+
+### Get All Sales Representatives
+GET http://localhost:8080/api/v1/partners/sales-representatives
+Authorization: Bearer {{token}}
+
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: CATEGORIES & SUBCATEGORIES
+# ==========================================
+
+### Create Category
+POST http://localhost:8080/api/v1/profile-items/categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Electronics"
+}
+
+### Get All Categories
+GET http://localhost:8080/api/v1/profile-items/categories
+Authorization: Bearer {{token}}
+
+### Get Category by ID
+GET http://localhost:8080/api/v1/profile-items/categories/1
+Authorization: Bearer {{token}}
+
+### Update Category
+PUT http://localhost:8080/api/v1/profile-items/categories/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Electronics & Gadgets"
+}
+
+### Delete Category
+DELETE http://localhost:8080/api/v1/profile-items/categories/1
+Authorization: Bearer {{token}}
+
+### Create Sub-Category
+POST http://localhost:8080/api/v1/profile-items/sub-categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "category_id": 1,
+    "name": "Mobile Phones"
+}
+
+### Get All Sub-Categories
+GET http://localhost:8080/api/v1/profile-items/sub-categories
+Authorization: Bearer {{token}}
+
+### Get Sub-Category by ID
+GET http://localhost:8080/api/v1/profile-items/sub-categories/1
+Authorization: Bearer {{token}}
+
+### Update Sub-Category
+PUT http://localhost:8080/api/v1/profile-items/sub-categories/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "category_id": 1,
+    "name": "Smartphones"
+}
+
+### Delete Sub-Category
+DELETE http://localhost:8080/api/v1/profile-items/sub-categories/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: TAGS
+# ==========================================
+
+### Create Tag
+POST http://localhost:8080/api/v1/profile-items/tags
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Premium"
+}
+
+### Get All Tags
+GET http://localhost:8080/api/v1/profile-items/tags
+Authorization: Bearer {{token}}
+
+### Get Tag by ID
+GET http://localhost:8080/api/v1/profile-items/tags/1
+Authorization: Bearer {{token}}
+
+### Update Tag
+PUT http://localhost:8080/api/v1/profile-items/tags/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Premium Quality"
+}
+
+### Delete Tag
+DELETE http://localhost:8080/api/v1/profile-items/tags/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: ITEM TYPES
+# ==========================================
+
+### Create Item Type
+POST http://localhost:8080/api/v1/profile-items/item-types
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Product"
+}
+
+### Get All Item Types
+GET http://localhost:8080/api/v1/profile-items/item-types
+Authorization: Bearer {{token}}
+
+### Get Item Type by ID
+GET http://localhost:8080/api/v1/profile-items/item-types/1
+Authorization: Bearer {{token}}
+
+### Update Item Type
+PUT http://localhost:8080/api/v1/profile-items/item-types/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Digital Product"
+}
+
+### Delete Item Type
+DELETE http://localhost:8080/api/v1/profile-items/item-types/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: MINOR CATEGORIES
+# ==========================================
+
+### Create Minor Category
+POST http://localhost:8080/api/v1/profile-items/minor-categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Electronics - Mobile Phones"
+}
+
+### Get All Minor Categories
+GET http://localhost:8080/api/v1/profile-items/minor-categories
+Authorization: Bearer {{token}}
+
+### Get Minor Category by ID
+GET http://localhost:8080/api/v1/profile-items/minor-categories/1
+Authorization: Bearer {{token}}
+
+### Update Minor Category
+PUT http://localhost:8080/api/v1/profile-items/minor-categories/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Electronics - Smartphones"
+}
+
+### Delete Minor Category
+DELETE http://localhost:8080/api/v1/profile-items/minor-categories/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: SALES SETUPS
+# ==========================================
+
+### Create Sales Setup
+POST http://localhost:8080/api/v1/profile-items/sales-setups
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Wholesale"
+}
+
+### Get All Sales Setups
+GET http://localhost:8080/api/v1/profile-items/sales-setups
+Authorization: Bearer {{token}}
+
+### Get Sales Setup by ID
+GET http://localhost:8080/api/v1/profile-items/sales-setups/1
+Authorization: Bearer {{token}}
+
+### Update Sales Setup
+PUT http://localhost:8080/api/v1/profile-items/sales-setups/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Direct Wholesale"
+}
+
+### Delete Sales Setup
+DELETE http://localhost:8080/api/v1/profile-items/sales-setups/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: CALCULATED BASE PRICES
+# ==========================================
+
+### Create Calculated Base Price
+POST http://localhost:8080/api/v1/profile-items/calculated-base-prices
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Standard Base Price"
+}
+
+### Get All Calculated Base Prices
+GET http://localhost:8080/api/v1/profile-items/calculated-base-prices
+Authorization: Bearer {{token}}
+
+### Get Calculated Base Price by ID
+GET http://localhost:8080/api/v1/profile-items/calculated-base-prices/1
+Authorization: Bearer {{token}}
+
+### Update Calculated Base Price
+PUT http://localhost:8080/api/v1/profile-items/calculated-base-prices/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Premium Base Price"
+}
+
+### Delete Calculated Base Price
+DELETE http://localhost:8080/api/v1/profile-items/calculated-base-prices/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: SALES SUPPLY TYPES
+# ==========================================
+
+### Create Sales Supply Type
+POST http://localhost:8080/api/v1/profile-items/sales-supply-types
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Direct Supply"
+}
+
+### Get All Sales Supply Types
+GET http://localhost:8080/api/v1/profile-items/sales-supply-types
+Authorization: Bearer {{token}}
+
+### Get Sales Supply Type by ID
+GET http://localhost:8080/api/v1/profile-items/sales-supply-types/1
+Authorization: Bearer {{token}}
+
+### Update Sales Supply Type
+PUT http://localhost:8080/api/v1/profile-items/sales-supply-types/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Indirect Supply"
+}
+
+### Delete Sales Supply Type
+DELETE http://localhost:8080/api/v1/profile-items/sales-supply-types/1
+Authorization: Bearer {{token}}
+
+###
+# ==========================================
+# ITEAM PROFILE MODULE: SALES TAX SETUPS
+# ==========================================
+
+### Create Sales Tax Setup
+POST http://localhost:8080/api/v1/profile-items/sales-tax-setups
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Standard Tax"
+}
+
+### Get All Sales Tax Setups
+GET http://localhost:8080/api/v1/profile-items/sales-tax-setups
+Authorization: Bearer {{token}}
+
+### Get Sales Tax Setup by ID
+GET http://localhost:8080/api/v1/profile-items/sales-tax-setups/1
+Authorization: Bearer {{token}}
+
+### Update Sales Tax Setup
+PUT http://localhost:8080/api/v1/profile-items/sales-tax-setups/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Premium Tax Setup"
+}
+
+### Delete Sales Tax Setup
+DELETE http://localhost:8080/api/v1/profile-items/sales-tax-setups/1
+Authorization: Bearer {{token}}
+
+
+
+//-------crate item ------
+###
+# ==========================================
+# ITEAM PROFILE MODULE: CREATE ITEMS (PRODUCTS)
+# ==========================================
+
+### Create a new item
+POST http://localhost:8080/api/v1/profile-items/items
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "category_id": 1,
+    "sub_category_id": 1,
+    "minor_category_id": 1,
+    "item_type_id": 1,
+    "calculate_base_price_id": 1,
+    "sales_tax_setup_id": 1,
+    "sales_supply_type_id": 1,
+    "supplier_id": 1,
+    "department_id": 1,
+    "name": "Samsung Galaxy S21",
+    "barcode": "8806092489475",
+    "description": "High-end smartphone with excellent camera and display",
+    "sku": "SAMS-GAL-S21-001",
+    "cost_price": 45000,
+    "standard_sales_price": 65000,
+    "cost_on_gp": 48000,
+    "last_cost": 44500,
+    "avg_cost": 45500,
+    "alt_umo": 1,
+    "alt_unit": "piece",
+    "max_discount": 15,
+    "reorder_minimum_qty": 5,
+    "item_image": "https://example.com/images/samsung-s21.jpg",
+    "notes": "Latest model, high demand item",
+    "is_child_barcode": false,
+    "auto_barcode": false,
+    "can_be_sold": true,
+    "can_be_produced": false,
+    "can_be_rented": false,
+    "can_be_purchased": true,
+    "is_vat_rebatable": false,
+    "is_not_allow_decimal": true,
+    "is_active": true
+}
+
+### Get all items
+GET http://localhost:8080/api/v1/profile-items/items
+Authorization: Bearer {{token}}
+
+### Get item by ID
+GET http://localhost:8080/api/v1/profile-items/items/1
+Authorization: Bearer {{token}}
+
+### Update item
+PUT http://localhost:8080/api/v1/profile-items/items/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Samsung Galaxy S21 Pro",
+    "standard_sales_price": 75000,
+    "cost_price": 50000,
+    "max_discount": 20,
+    "is_active": true
+}
+
+### Partial update item (only price fields)
+PUT http://localhost:8080/api/v1/profile-items/items/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "standard_sales_price": 72000,
+    "cost_price": 48000,
+    "max_discount": 18
+}
+
+### Delete item
+DELETE http://localhost:8080/api/v1/profile-items/items/1
+Authorization: Bearer {{token}}

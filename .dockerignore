@@ -1,0 +1,11 @@
+.git
+.air.toml
+tmp
+bin
+run.sh
+Dockerfile
+docker-compose.yml
+.env
+.env.example
+README.md
+vendor

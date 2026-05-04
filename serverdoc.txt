@@ -1,0 +1,20 @@
+Ip : 144.79.133.252
+User : root
+Password : p;D^H96:0WmT4?wd/faN
+ssh root@144.79.133.252
+
+https://vps.vidatech.com.bd/login
+
+IP : 161.248.201.34
+username : root
+password : 5(5_;38\vQUB8+bZm~VD
+
+Vida ERP
+_______________
+
+vidatech-erp
+
+rbyGADT3iQlVTfyN7fPJ
+
+vidatech
+p;D^H96:0WmT4?wd/faN

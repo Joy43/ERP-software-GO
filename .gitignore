@@ -1,0 +1,7 @@
+.env
+/tmp
+deploy/nginx/certs/*.crt
+deploy/nginx/certs/*.key
+/media
+media/*
+media/
