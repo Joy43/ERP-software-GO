@@ -1,5 +1,5 @@
 
-# assmi-super-shop-erp-backend
+# ERP-Software
 
 ## Service Overview
 
@@ -211,8 +211,6 @@ cd "/Users/ssjoy/veda tech/assmi-super-shop-erp-backend"
 
 # radis connect url localhost
 redis://default:change-me-redis-password@127.0.0.1:6379
-# Ieam setup require
-https://drive.google.com/file/d/10n97y-2BZiBcYI6FnIjY5jXfzXALSePi/view?usp=drivesdk
 
 HOW TO cached  USE THE FIX:
 
