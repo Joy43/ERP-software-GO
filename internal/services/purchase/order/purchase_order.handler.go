@@ -130,7 +130,7 @@ func (h *Handler) Create(c *gin.Context) {
 }
 
 // Update godoc
-// @Summary      Update a purchase order (DRAFT only)
+// @Summary      Update a purchase order (Pending only)
 // @Tags         purchase--------------------- Purchase Order
 // @Accept       json
 // @Produce      json
@@ -196,7 +196,7 @@ func (h *Handler) UpdateStatus(c *gin.Context) {
 }
 
 // Delete godoc
-// @Summary      Delete a purchase order (DRAFT only)
+// @Summary      Delete a purchase order (PENDING only)
 // @Tags         purchase--------------------- Purchase Order
 // @Produce      json
 // @Security     BearerAuth
