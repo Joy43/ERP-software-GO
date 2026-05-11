@@ -86,7 +86,7 @@ services:
     networks:
       - app_network
     profiles:
-      - debug   # only run when needed
+      - debug 
 
 volumes:
   mysql_data:

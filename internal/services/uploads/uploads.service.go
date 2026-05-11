@@ -48,11 +48,12 @@ type IService interface {
 //--------- Service implements IService---------
 type Service struct {
 	repo IUploadRepository
+	baseURL string
 }
 
 // NewService creates a new upload service
-func NewService(repo IUploadRepository) IService {
-	return &Service{repo: repo}
+func NewService(repo IUploadRepository, baseURL string) IService {
+	return &Service{repo: repo, baseURL: baseURL}
 }
 
 // ==================== FOLDER OPERATIONS ====================
@@ -169,7 +170,7 @@ func (s *Service) UploadFile(file *multipart.FileHeader, folderID *uint64, userI
 		return nil, fmt.Errorf("file type not allowed: %s", mimeType)
 	}
 
-	// Generate unique filename
+	//------------ Generate unique filename--------------
 	filename := generateUniqueFilename(file.Filename)
 	storagePath := filepath.Join(upload_config.Config.UploadDir, filename)
 
@@ -209,6 +210,11 @@ func (s *Service) UploadFile(file *multipart.FileHeader, folderID *uint64, userI
 		IsDeleted:    false,
 		CreatedAt:    time.Now(),
 		UpdatedAt:    time.Now(),
+	}
+
+	// If service has baseURL configured, store full URL in DB instead of raw filesystem path
+	if s.baseURL != "" {
+		fileRecord.StoragePath = buildFullURL(s.baseURL, storagePath)
 	}
 
 	if err := s.repo.UploadFile(fileRecord); err != nil {
@@ -486,4 +492,19 @@ func getFileType(ext string, mimeType string) FileTypeEnum {
 func toJSON(data interface{}) string {
 	b, _ := json.Marshal(data)
 	return string(b)
+}
+
+// buildFullURL ensures baseURL and path are joined correctly
+func buildFullURL(baseURL, path string) string {
+	// If path already looks like a URL, return as is
+	if strings.HasPrefix(path, "http://") || strings.HasPrefix(path, "https://") {
+		return path
+	}
+
+	// Trim leading ./ or / from path when joining
+	p := strings.TrimPrefix(path, "./")
+	p = strings.TrimLeft(p, "/")
+
+	base := strings.TrimRight(baseURL, "/")
+	return base + "/" + p
 }

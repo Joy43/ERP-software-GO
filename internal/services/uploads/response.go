@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/vidatechbd/assmi-super-shop-erp-backend/internal/shared/pagination"
 )
 
 // APIResponse represents a standard API response
@@ -49,13 +50,12 @@ func Error(c *gin.Context, statusCode int, message string, errorCode string, det
 
 // SuccessList sends a paginated success response
 func SuccessList(c *gin.Context, statusCode int, data interface{}, total int64, page int, limit int, message string) {
-	c.JSON(statusCode, PaginatedResponse{
+	paginated := pagination.BuildPaginationMap(c, data, total, page, limit)
+	c.JSON(statusCode, APIResponse{
 		Success: true,
 		Message: message,
-		Data:    data,
-		Total:   total,
-		Page:    page,
-		Limit:   limit,
+		Data:    paginated,
+		Code:    statusCode,
 	})
 }
 

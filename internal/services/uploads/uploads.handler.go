@@ -3,6 +3,7 @@ package uploads
 import (
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/vidatechbd/assmi-super-shop-erp-backend/internal/config"
@@ -147,6 +148,15 @@ func (h *Handler) GetFolderContents(c *gin.Context) {
 	if l := c.Query("limit"); l != "" {
 		if limitNum, err := strconv.Atoi(l); err == nil && limitNum > 0 && limitNum <= 100 {
 			limit = limitNum
+		}
+	}
+
+	// If no folder_id provided, default to the first root folder for the user (if any)
+	if folderID == nil {
+		rootFolders, err := h.service.GetRootFolders(userID)
+		if err == nil && len(rootFolders) > 0 {
+			id := rootFolders[0].ID
+			folderID = &id
 		}
 	}
 
@@ -362,36 +372,13 @@ return
 	Success(c, http.StatusCreated, resp, "Files uploaded successfully")
 }
 
-// GetFile godoc
-// @Summary Get file details
-// @Description Get detailed information about a specific file
-// @Tags Uploads----------Files
-// @Produce json
-// @Param file_id path integer true "File ID"
-// @Success 200 {object} FileDetailResponse
-// @Router /uploads/files/{file_id} [get]
-// @Security BearerAuth
-func (h *Handler) GetFile(c *gin.Context) {
-	fileID, err := strconv.ParseUint(c.Param("file_id"), 10, 64)
-	if err != nil {
-		BadRequest(c, "Invalid file ID", err.Error())
-		return
-	}
-
-	file, err := h.service.GetFile(fileID)
-	if err != nil {
-		NotFound(c, "File not found")
-		return
-	}
-
-	Success(c, http.StatusOK, h.fileDetailToResponse(file), "File retrieved successfully")
-}
 
 // GetUserFiles godoc
 // @Summary Get user files
-// @Description Get all files uploaded by the user with pagination
+// @Description Get all files uploaded by the user with optional search and pagination
 // @Tags Uploads----------Files
 // @Produce json
+// @Param q query string false "Search query (optional)"
 // @Param page query integer false "Page number" default(1)
 // @Param limit query integer false "Items per page" default(20)
 // @Success 200 {object} ListResponse
@@ -399,27 +386,29 @@ func (h *Handler) GetFile(c *gin.Context) {
 // @Security BearerAuth
 func (h *Handler) GetUserFiles(c *gin.Context) {
 	userID, ok := getUserID(c)
-if !ok {
-Unauthorized(c, "User ID not found in context")
-return
-}
+	if !ok {
+		Unauthorized(c, "User ID not found in context")
+		return
+	}
 
-	page := 1
-	limit := 20
-
+	page, limit := 1, 20
 	if p := c.Query("page"); p != "" {
 		if pageNum, err := strconv.Atoi(p); err == nil && pageNum > 0 {
 			page = pageNum
 		}
 	}
-
 	if l := c.Query("limit"); l != "" {
 		if limitNum, err := strconv.Atoi(l); err == nil && limitNum > 0 && limitNum <= 100 {
 			limit = limitNum
 		}
 	}
 
-	files, total, err := h.service.GetUserFiles(userID, limit, page)
+	var (files []File; total int64; err error)
+	if q := c.Query("q"); q != "" {
+		files, total, err = h.service.SearchFiles(q, userID, limit, page)
+	} else {
+		files, total, err = h.service.GetUserFiles(userID, limit, page)
+	}
 	if err != nil {
 		InternalServerError(c, "Failed to fetch files", err.Error())
 		return
@@ -429,64 +418,12 @@ return
 	for _, file := range files {
 		fileResps = append(fileResps, h.fileToResponse(&file))
 	}
-
 	SuccessList(c, http.StatusOK, fileResps, total, page, limit, "Files retrieved successfully")
 }
 
-
-// SearchFiles godoc
-// @Summary Search files
-// @Description Search files by name with pagination
-// @Tags Uploads----------Files
-// @Produce json
-// @Param q query string true "Search query"
-// @Param page query integer false "Page number" default(1)
-// @Param limit query integer false "Items per page" default(20)
-// @Success 200 {object} ListResponse
-// @Router /uploads/files/search [get]
-// @Security BearerAuth
-func (h *Handler) SearchFiles(c *gin.Context) {
-	query := c.Query("q")
-	if query == "" {
-		BadRequest(c, "Search query is required", "")
-		return
-	}
-
-	userID, ok := getUserID(c)
-if !ok {
-Unauthorized(c, "User ID not found in context")
-return
-}
-
-	page := 1
-	limit := 20
-
-	if p := c.Query("page"); p != "" {
-		if pageNum, err := strconv.Atoi(p); err == nil && pageNum > 0 {
-			page = pageNum
-		}
-	}
-
-	if l := c.Query("limit"); l != "" {
-		if limitNum, err := strconv.Atoi(l); err == nil && limitNum > 0 && limitNum <= 100 {
-			limit = limitNum
-		}
-	}
-
-	files, total, err := h.service.SearchFiles(query, userID, limit, page)
-	if err != nil {
-		InternalServerError(c, "Search failed", err.Error())
-		return
-	}
-
-	var fileResps []FileResponse
-	for _, file := range files {
-		fileResps = append(fileResps, h.fileToResponse(&file))
-	}
-
-	SuccessList(c, http.StatusOK, fileResps, total, page, limit, "Search results retrieved successfully")
-}
-
+//===============================
+// Soft delete file (move to trash)
+//===============================
 
 
 // DeleteFile godoc
@@ -512,6 +449,9 @@ func (h *Handler) DeleteFile(c *gin.Context) {
 
 	Success(c, http.StatusOK, nil, "File deleted successfully")
 }
+//===============================
+// restore file from trash (soft deleted)
+//===============================
 
 // RestoreFile godoc
 // @Summary Restore file
@@ -536,6 +476,9 @@ func (h *Handler) RestoreFile(c *gin.Context) {
 
 	Success(c, http.StatusOK, nil, "File restored successfully")
 }
+//===============================
+// Move file to another folder
+//===============================
 
 // MoveFile godoc
 // @Summary Move file to another folder
@@ -570,6 +513,8 @@ func (h *Handler) MoveFile(c *gin.Context) {
 	Success(c, http.StatusOK, h.fileToResponse(file), "File moved successfully")
 }
 
+//================== view file inline (for supported types) ==================
+
 // DownloadFile godoc
 // @Summary Download file
 // @Description Download a file
@@ -601,33 +546,7 @@ func (h *Handler) DownloadFile(c *gin.Context) {
 	c.FileAttachment(storagePath, file.OriginalName)
 }
 
-// ViewFile godoc
-// @Summary View/Stream file
-// @Description View or stream a file directly (inline display for images/PDFs)
-// @Tags Uploads----------Files
-// @Produce octet-stream
-// @Param file_id path integer true "File ID"
-// @Success 200
-// @Router /uploads/files/{file_id}/view [get]
-// @Security BearerAuth
-func (h *Handler) ViewFile(c *gin.Context) {
-	fileID, err := strconv.ParseUint(c.Param("file_id"), 10, 64)
-	if err != nil {
-		BadRequest(c, "Invalid file ID", err.Error())
-		return
-	}
 
-	file, err := h.service.GetFile(fileID)
-	if err != nil {
-		NotFound(c, "File not found")
-		return
-	}
-
-	// Set appropriate headers for inline display
-	c.Header("Content-Type", file.MimeType)
-	c.Header("Content-Disposition", "inline; filename=\""+file.OriginalName+"\"")
-	c.File(file.StoragePath)
-}
 
 // ==================== HELPER METHODS ====================
 
@@ -648,10 +567,15 @@ func (h *Handler) fileToResponse(file *File) FileResponse {
 		folderName = file.Folder.Name
 	}
 
-	// Build full URL with base URL
+	// Build full URL only if storage path is not already a URL
 	storagePath := file.StoragePath
 	if storagePath != "" && h.cfg.BaseURL != "" {
-		storagePath = h.cfg.BaseURL + "/" + storagePath
+		if !(strings.HasPrefix(storagePath, "http://") || strings.HasPrefix(storagePath, "https://")) {
+			// Trim leading ./ or / from path when joining
+			p := strings.TrimPrefix(storagePath, "./")
+			p = strings.TrimLeft(p, "/")
+			storagePath = strings.TrimRight(h.cfg.BaseURL, "/") + "/" + p
+		}
 	}
 
 	return FileResponse{
@@ -715,7 +639,7 @@ func (h *Handler) folderToResponseWithChildren(folder *Folder) FolderResponseWit
 		UpdatedAt:   folder.UpdatedAt,
 	}
 
-	// Recursively convert children
+	// --------- Recursively convert children------------
 	if len(folder.Children) > 0 {
 		resp.Children = make([]FolderResponseWithChildren, 0, len(folder.Children))
 		for _, child := range folder.Children {

@@ -41,12 +41,10 @@ func RegisterRoutes(
 		files.POST("", h.UploadFile)
 		// Upload multiple files
 		files.POST("/batch", h.UploadMultiple)
-		// Get user files (with pagination)
+		// Get user files (with optional ?q= search)
 		files.GET("", h.GetUserFiles)
-		// Search files
-		files.GET("/search", h.SearchFiles)
-		// Get file details
-		files.GET("/:file_id", h.GetFile)
+
+	
 
 		// Move file to folder
 		files.POST("/:file_id/move", h.MoveFile)
@@ -56,8 +54,7 @@ func RegisterRoutes(
 		files.POST("/:file_id/restore", h.RestoreFile)
 		// Download file
 		files.GET("/:file_id/download", h.DownloadFile)
-		// View file (inline display)
-		files.GET("/:file_id/view", h.ViewFile)
+	
 		
 	}
 

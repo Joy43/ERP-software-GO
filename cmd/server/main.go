@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	_ "github.com/vidatechbd/assmi-super-shop-erp-backend/docs/swagger"
+	
 	"github.com/vidatechbd/assmi-super-shop-erp-backend/internal/app"
 )
 
