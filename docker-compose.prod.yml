@@ -7,22 +7,8 @@ services:
     expose:
       - "8080"
     environment:
-      - APP_NAME=${APP_NAME}
-      - APP_ENV=production
-      - APP_PORT=8080
-
-      - MYSQL_DSN=root:${MYSQL_ROOT_PASSWORD}@tcp(db:3306)/${MYSQL_DATABASE}?charset=utf8mb4&parseTime=True&loc=Local
-
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-
-      - JWT_ACCESS_SECRET=${JWT_ACCESS_SECRET}
-      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
-      - JWT_ACCESS_TTL_MINUTES=${JWT_ACCESS_TTL_MINUTES}
-      - JWT_REFRESH_TTL_DAYS=${JWT_REFRESH_TTL_DAYS}
-
-      - BCRYPT_COST=${BCRYPT_COST}
+     -env_file:
+        .env
     depends_on:
       db:
         condition: service_healthy

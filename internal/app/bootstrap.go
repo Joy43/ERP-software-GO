@@ -216,10 +216,9 @@ func Run() error {
 	ItemHandler := items.NewHandler(ItemService, redisClient)
 
 	// Uploads module
-	uploadsRepository := uploads.NewRepository(db)
-	uploadsService := uploads.NewService(uploadsRepository)
+		uploadsRepository := uploads.NewRepository(db)
+	uploadsService := uploads.NewService(uploadsRepository, cfg.BaseURL)
 	uploadsHandler := uploads.NewHandler(uploadsService, cfg)
-
 	// Location module
 	locationRepo := location.NewRepository(db)
 	locationService := location.NewService(locationRepo)

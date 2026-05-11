@@ -1,0 +1,7748 @@
+basePath: /api/v1
+definitions:
+  category.CreateCategoryRequest:
+    properties:
+      department_id:
+        type: integer
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  category.UpdateCategoryRequest:
+    properties:
+      department_id:
+        type: integer
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  customer.BankInfoRequest:
+    properties:
+      account_name:
+        type: string
+      account_no:
+        type: string
+      bank_name:
+        type: string
+      branch_name:
+        type: string
+      routing_no:
+        type: string
+    type: object
+  customer.CreateCustomerRequest:
+    properties:
+      attachment:
+        type: string
+      bank_infos:
+        items:
+          $ref: '#/definitions/customer.BankInfoRequest'
+        type: array
+      billing_address:
+        type: string
+      billing_contact_no:
+        type: string
+      billing_contact_person:
+        type: string
+      billing_name:
+        type: string
+      bin_number:
+        type: string
+      birthday_date:
+        type: string
+      credit_days:
+        type: integer
+      credit_limit:
+        type: number
+      default_sales_rep_id:
+        type: integer
+      district_id:
+        type: integer
+      email:
+        type: string
+      gender:
+        type: string
+      is_distributor:
+        type: boolean
+      is_employee_customer:
+        type: boolean
+      is_foreign_customer:
+        type: boolean
+      marital_status:
+        type: string
+      marriage_date:
+        type: string
+      mobile_no:
+        type: string
+      name:
+        type: string
+      nid:
+        type: string
+      office_id:
+        type: integer
+      partner_group_id:
+        type: integer
+      partner_sub_group_id:
+        type: integer
+      point_expiry_days:
+        type: integer
+      price_type_id:
+        type: integer
+      remarks:
+        type: string
+      shipping_addresses:
+        items:
+          $ref: '#/definitions/customer.ShippingAddressRequest'
+        type: array
+      tax_bracket_id:
+        type: integer
+      tcs_percentage:
+        type: number
+      thana_id:
+        type: integer
+      tin_number:
+        type: string
+      tolerance:
+        type: number
+      trade_license_number:
+        type: string
+      user_id:
+        type: integer
+      vat_reg_no_central:
+        type: string
+    required:
+    - billing_address
+    - billing_name
+    - mobile_no
+    - name
+    - office_id
+    type: object
+  customer.ShippingAddressRequest:
+    properties:
+      address:
+        type: string
+      code:
+        type: string
+      contact_no:
+        type: string
+      contact_person:
+        type: string
+      district_id:
+        type: integer
+      gps:
+        type: string
+      ref_outlet:
+        type: string
+      thana_id:
+        type: integer
+      vat_reg_no:
+        type: string
+    required:
+    - address
+    type: object
+  customer.UpdateCustomerRequest:
+    properties:
+      attachment:
+        type: string
+      bank_infos:
+        items:
+          $ref: '#/definitions/customer.BankInfoRequest'
+        type: array
+      billing_address:
+        type: string
+      billing_contact_no:
+        type: string
+      billing_contact_person:
+        type: string
+      billing_name:
+        type: string
+      bin_number:
+        type: string
+      birthday_date:
+        type: string
+      credit_days:
+        type: integer
+      credit_limit:
+        type: number
+      default_sales_rep_id:
+        type: integer
+      district_id:
+        type: integer
+      email:
+        type: string
+      gender:
+        type: string
+      is_distributor:
+        type: boolean
+      is_employee_customer:
+        type: boolean
+      is_foreign_customer:
+        type: boolean
+      marital_status:
+        type: string
+      marriage_date:
+        type: string
+      mobile_no:
+        type: string
+      name:
+        type: string
+      nid:
+        type: string
+      office_id:
+        type: integer
+      partner_group_id:
+        type: integer
+      partner_sub_group_id:
+        type: integer
+      point_expiry_days:
+        type: integer
+      price_type_id:
+        type: integer
+      remarks:
+        type: string
+      shipping_addresses:
+        items:
+          $ref: '#/definitions/customer.ShippingAddressRequest'
+        type: array
+      tax_bracket_id:
+        type: integer
+      tcs_percentage:
+        type: number
+      thana_id:
+        type: integer
+      tin_number:
+        type: string
+      tolerance:
+        type: number
+      trade_license_number:
+        type: string
+      user_id:
+        type: integer
+      vat_reg_no_central:
+        type: string
+    required:
+    - billing_address
+    - billing_name
+    - mobile_no
+    - name
+    - office_id
+    type: object
+  department.CreateDepartmentRequest:
+    properties:
+      description:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  department.UpdateDepartmentRequest:
+    properties:
+      description:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    type: object
+  designation.CreateDesignationRequest:
+    properties:
+      description:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  designation.UpdateDesignationRequest:
+    properties:
+      description:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    type: object
+  district.CreateDistrictRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  district.UpdateDistrictRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  grn.CreateGRNItemRequest:
+    properties:
+      category_id:
+        type: integer
+      discount_percentage:
+        type: number
+      item_id:
+        type: integer
+      minor_category_id:
+        type: integer
+      po_item_id:
+        type: integer
+      purchase_price:
+        minimum: 0
+        type: number
+      received_quantity:
+        type: number
+      remarks:
+        type: string
+      sub_category_id:
+        type: integer
+      uom_id:
+        type: integer
+      vat_percentage:
+        type: number
+    required:
+    - item_id
+    - purchase_price
+    - received_quantity
+    type: object
+  grn.CreateGRNRequest:
+    properties:
+      challan_date:
+        type: string
+      challan_no:
+        type: string
+      delivery_number:
+        type: string
+      file_id:
+        type: integer
+      grn_date:
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/grn.CreateGRNItemRequest'
+        minItems: 1
+        type: array
+      location_id:
+        type: integer
+      office_id:
+        type: integer
+      payment_method_id:
+        type: integer
+      po_id:
+        type: integer
+      receive_type:
+        allOf:
+        - $ref: '#/definitions/grn.GRNReceiveType'
+        enum:
+        - DIRECT
+        - AGAINST_PO
+      received_by_id:
+        type: integer
+      remarks:
+        type: string
+      requisition_id:
+        type: integer
+      sales_invoice_number:
+        type: string
+      shipment_document_number:
+        type: string
+      shipping_address:
+        type: string
+      supplier_id:
+        type: integer
+      vat_challan_number:
+        type: string
+    required:
+    - grn_date
+    - items
+    - location_id
+    - office_id
+    - receive_type
+    - supplier_id
+    type: object
+  grn.FileDTO:
+    properties:
+      extension:
+        type: string
+      id:
+        type: integer
+      is_public:
+        type: boolean
+      mime_type:
+        type: string
+      name:
+        type: string
+      original_name:
+        type: string
+      size:
+        type: integer
+      storage_path:
+        type: string
+    type: object
+  grn.GRNItemResponse:
+    properties:
+      category_id:
+        type: integer
+      created_at:
+        type: string
+      discount_amount:
+        type: number
+      discount_percentage:
+        type: number
+      grn_id:
+        type: integer
+      id:
+        type: integer
+      item:
+        $ref: '#/definitions/grn.GRNRefDTO'
+      item_id:
+        type: integer
+      minor_category_id:
+        type: integer
+      po_item_id:
+        type: integer
+      purchase_price:
+        type: number
+      received_quantity:
+        type: number
+      remarks:
+        type: string
+      sub_category_id:
+        type: integer
+      total_amount:
+        type: number
+      uom_id:
+        type: integer
+      vat_amount:
+        type: number
+      vat_percentage:
+        type: number
+    type: object
+  grn.GRNPaginationMeta:
+    properties:
+      page:
+        type: integer
+      page_size:
+        type: integer
+      total:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  grn.GRNReceiveType:
+    enum:
+    - DIRECT
+    - AGAINST_PO
+    type: string
+    x-enum-varnames:
+    - GRNDirect
+    - GRNAgainstPO
+  grn.GRNRefDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  grn.GRNResponse:
+    properties:
+      challan_date:
+        type: string
+      challan_no:
+        type: string
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      delivery_number:
+        type: string
+      file:
+        $ref: '#/definitions/grn.FileDTO'
+      file_id:
+        type: integer
+      grn_date:
+        type: string
+      grn_number:
+        type: string
+      id:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/grn.GRNItemResponse'
+        type: array
+      location:
+        $ref: '#/definitions/grn.GRNRefDTO'
+      location_id:
+        type: integer
+      office:
+        $ref: '#/definitions/grn.GRNRefDTO'
+      office_id:
+        type: integer
+      payment_method_id:
+        type: integer
+      po_id:
+        type: integer
+      receive_type:
+        $ref: '#/definitions/grn.GRNReceiveType'
+      received_by_id:
+        type: integer
+      remarks:
+        type: string
+      requisition_id:
+        type: integer
+      sales_invoice_number:
+        type: string
+      shipment_document_number:
+        type: string
+      shipping_address:
+        type: string
+      status:
+        $ref: '#/definitions/grn.GRNStatus'
+      supplier:
+        $ref: '#/definitions/grn.GRNRefDTO'
+      supplier_id:
+        type: integer
+      updated_at:
+        type: string
+      vat_challan_number:
+        type: string
+    type: object
+  grn.GRNStatus:
+    enum:
+    - PENDING
+    - CONFIRMED
+    - CANCELLED
+    type: string
+    x-enum-varnames:
+    - GRNStatusPending
+    - GRNStatusConfirmed
+    - GRNStatusCancelled
+  grn.PaginatedGRNResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/grn.GRNResponse'
+        type: array
+      pagination:
+        $ref: '#/definitions/grn.GRNPaginationMeta'
+    type: object
+  inventorytypes.CreateInventoryTypeRequest:
+    properties:
+      description:
+        maxLength: 255
+        type: string
+      is_active:
+        type: boolean
+      type_code:
+        maxLength: 150
+        minLength: 2
+        type: string
+      type_name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - type_code
+    - type_name
+    type: object
+  inventorytypes.InventoryTypeResponse:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      type_code:
+        type: string
+      type_name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  inventorytypes.UpdateInventoryTypeRequest:
+    properties:
+      description:
+        maxLength: 255
+        type: string
+      is_active:
+        type: boolean
+      type_code:
+        maxLength: 150
+        minLength: 2
+        type: string
+      type_name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    type: object
+  item_type.CreateItemTypeRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  item_type.UpdateItemTypeRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  items.CreateItemPharmacyRequest:
+    properties:
+      brand_name:
+        example: Napa
+        maxLength: 200
+        type: string
+      dosage_form:
+        example: Tablet
+        maxLength: 100
+        type: string
+      drug_registration_no:
+        example: REG-123456
+        maxLength: 100
+        type: string
+      generic_name:
+        example: Paracetamol
+        maxLength: 200
+        type: string
+      is_controlled_drug:
+        example: false
+        type: boolean
+      is_prescription_required:
+        example: false
+        type: boolean
+      manufacturer_name:
+        example: Beximco Pharmaceuticals
+        maxLength: 200
+        type: string
+      max_daily_dose:
+        example: 4000mg
+        maxLength: 100
+        type: string
+      reorder_alert_days:
+        minimum: 0
+        type: integer
+      route_of_administration:
+        example: Oral
+        maxLength: 100
+        type: string
+      schedule_type:
+        example: Schedule I
+        maxLength: 50
+        type: string
+      shelf_life_days:
+        minimum: 0
+        type: integer
+      storage_condition:
+        example: Room Temperature
+        maxLength: 200
+        type: string
+      strength:
+        example: 500mg
+        maxLength: 100
+        type: string
+      therapeutic_class:
+        example: Analgesic
+        maxLength: 150
+        type: string
+    type: object
+  items.CreateItemRequest:
+    properties:
+      alt_umo:
+        example: 1
+        minimum: 0
+        type: number
+      alt_unit:
+        example: BOX
+        maxLength: 50
+        type: string
+      auto_barcode:
+        example: false
+        type: boolean
+      avg_cost:
+        example: 100
+        minimum: 0
+        type: number
+      barcode:
+        example: EAN123456
+        maxLength: 100
+        type: string
+      calculate_base_price:
+        example: 100
+        minimum: 0
+        type: number
+      can_be_produced:
+        example: false
+        type: boolean
+      can_be_purchased:
+        example: true
+        type: boolean
+      can_be_rented:
+        example: false
+        type: boolean
+      can_be_sold:
+        example: true
+        type: boolean
+      category_id:
+        description: Category Fields
+        example: 1
+        type: integer
+      cost_on_gp:
+        example: 0
+        minimum: 0
+        type: number
+      cost_price:
+        description: Pricing Fields
+        example: 100
+        minimum: 0
+        type: number
+      department_id:
+        example: 1
+        type: integer
+      file_id:
+        description: Media & Metadata
+        example: 1
+        type: integer
+      is_active:
+        example: true
+        type: boolean
+      is_child_barcode:
+        description: Flags
+        example: false
+        type: boolean
+      is_not_allow_decimal:
+        example: false
+        type: boolean
+      is_percentage:
+        example: false
+        type: boolean
+      is_pharmacy:
+        example: false
+        type: boolean
+      is_style:
+        example: false
+        type: boolean
+      is_vat_rebatable:
+        example: false
+        type: boolean
+      item_type_id:
+        example: 1
+        type: integer
+      last_cost:
+        example: 100
+        minimum: 0
+        type: number
+      max_discount:
+        example: 20
+        maximum: 100
+        minimum: 0
+        type: number
+      minor_category_id:
+        example: 1
+        type: integer
+      name:
+        description: Basic Fields
+        example: Product Name required
+        maxLength: 150
+        minLength: 2
+        type: string
+      pharmacy:
+        allOf:
+        - $ref: '#/definitions/items.CreateItemPharmacyRequest'
+        description: Pharmacy Fields (required if IsPharmacy is true)
+      price_increasing:
+        example: 0
+        minimum: 0
+        type: number
+      reorder_minimum_qty:
+        example: 10
+        minimum: 0
+        type: number
+      sales_setup_id:
+        example: 1
+        type: integer
+      sales_supply_type_id:
+        description: Tax & Supply Setup
+        example: 1
+        type: integer
+      sales_tax_setup_id:
+        example: 1
+        type: integer
+      sku:
+        example: SKU123
+        maxLength: 100
+        type: string
+      standard_sales_price:
+        example: 200
+        minimum: 0
+        type: number
+      sub_category_id:
+        example: 1
+        type: integer
+      supplier_id:
+        example: 1
+        type: integer
+      tag_id:
+        example: 1
+        type: integer
+      uom_id:
+        description: UOM & Supplier
+        example: 1
+        type: integer
+    required:
+    - category_id
+    - cost_price
+    - department_id
+    - item_type_id
+    - minor_category_id
+    - name
+    - sales_supply_type_id
+    - sku
+    - standard_sales_price
+    - sub_category_id
+    - supplier_id
+    - uom_id
+    type: object
+  items.ItemPharmacyResponse:
+    properties:
+      brand_name:
+        type: string
+      created_at:
+        type: string
+      dosage_form:
+        type: string
+      drug_registration_no:
+        type: string
+      generic_name:
+        type: string
+      is_controlled_drug:
+        type: boolean
+      is_prescription_required:
+        type: boolean
+      item_id:
+        type: integer
+      manufacturer_name:
+        type: string
+      max_daily_dose:
+        type: string
+      reorder_alert_days:
+        type: integer
+      route_of_administration:
+        type: string
+      schedule_type:
+        type: string
+      shelf_life_days:
+        type: integer
+      storage_condition:
+        type: string
+      strength:
+        type: string
+      therapeutic_class:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  items.ItemResponse:
+    properties:
+      alt_umo:
+        type: number
+      alt_unit:
+        type: string
+      auto_barcode:
+        type: boolean
+      avg_cost:
+        type: number
+      barcode:
+        type: string
+      calculate_base_price:
+        type: number
+      can_be_produced:
+        type: boolean
+      can_be_purchased:
+        type: boolean
+      can_be_rented:
+        type: boolean
+      can_be_sold:
+        type: boolean
+      category: {}
+      category_id:
+        type: integer
+      cost_on_gp:
+        type: number
+      cost_price:
+        type: number
+      created_at:
+        type: string
+      department: {}
+      department_id:
+        type: integer
+      file: {}
+      file_id:
+        type: integer
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      is_child_barcode:
+        type: boolean
+      is_not_allow_decimal:
+        type: boolean
+      is_percentage:
+        type: boolean
+      is_pharmacy:
+        type: boolean
+      is_style:
+        type: boolean
+      is_vat_rebatable:
+        type: boolean
+      item_type: {}
+      item_type_id:
+        type: integer
+      last_cost:
+        type: number
+      max_discount:
+        type: number
+      minor_category: {}
+      minor_category_id:
+        type: integer
+      name:
+        type: string
+      pharmacy:
+        $ref: '#/definitions/items.ItemPharmacyResponse'
+      price_increasing:
+        type: number
+      reorder_minimum_qty:
+        type: number
+      sales_setup: {}
+      sales_setup_id:
+        type: integer
+      sales_supply_type: {}
+      sales_supply_type_id:
+        type: integer
+      sales_tax_setup: {}
+      sales_tax_setup_id:
+        type: integer
+      sku:
+        type: string
+      standard_sales_price:
+        type: number
+      sub_category: {}
+      sub_category_id:
+        type: integer
+      supplier: {}
+      supplier_id:
+        type: integer
+      tag: {}
+      tag_id:
+        type: integer
+      uom: {}
+      uom_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  items.ListResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/items.ItemResponse'
+        type: array
+      limit:
+        type: integer
+      page:
+        type: integer
+      total:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  items.UpdateItemRequest:
+    properties:
+      alt_umo:
+        minimum: 0
+        type: number
+      alt_unit:
+        maxLength: 50
+        type: string
+      auto_barcode:
+        type: boolean
+      avg_cost:
+        minimum: 0
+        type: number
+      barcode:
+        maxLength: 100
+        type: string
+      calculate_base_price:
+        minimum: 0
+        type: number
+      can_be_produced:
+        type: boolean
+      can_be_purchased:
+        type: boolean
+      can_be_rented:
+        type: boolean
+      can_be_sold:
+        type: boolean
+      category_id:
+        description: Category Fields
+        type: integer
+      cost_on_gp:
+        minimum: 0
+        type: number
+      cost_price:
+        description: '-------------- Pricing Fields----------------'
+        minimum: 0
+        type: number
+      department_id:
+        type: integer
+      file_id:
+        description: '-------------- Media & Metadata---------------------'
+        type: integer
+      is_active:
+        type: boolean
+      is_child_barcode:
+        description: '--------------Flags----------------------'
+        type: boolean
+      is_not_allow_decimal:
+        type: boolean
+      is_percentage:
+        type: boolean
+      is_style:
+        type: boolean
+      is_vat_rebatable:
+        type: boolean
+      item_type_id:
+        type: integer
+      last_cost:
+        minimum: 0
+        type: number
+      max_discount:
+        maximum: 100
+        minimum: 0
+        type: number
+      minor_category_id:
+        type: integer
+      name:
+        description: Basic Fields
+        maxLength: 150
+        minLength: 2
+        type: string
+      price_increasing:
+        minimum: 0
+        type: number
+      reorder_minimum_qty:
+        minimum: 0
+        type: number
+      sales_setup_id:
+        type: integer
+      sales_supply_type_id:
+        description: '------------ Tax & Supply Setup----------------'
+        type: integer
+      sales_tax_setup_id:
+        type: integer
+      sku:
+        maxLength: 100
+        type: string
+      standard_sales_price:
+        minimum: 0
+        type: number
+      sub_category_id:
+        type: integer
+      supplier_id:
+        type: integer
+      tag_id:
+        type: integer
+      uom_id:
+        description: '---------- UOM & Supplier----------'
+        type: integer
+    type: object
+  location.CreateLocationRequest:
+    properties:
+      code:
+        type: string
+      is_active:
+        type: boolean
+      location:
+        type: string
+      manager_id:
+        type: integer
+      name:
+        type: string
+      office_id:
+        type: integer
+      parent_id:
+        type: integer
+      type:
+        $ref: '#/definitions/location.LocationType'
+    required:
+    - code
+    - name
+    - office_id
+    - type
+    type: object
+  location.LocationType:
+    enum:
+    - warehouse
+    - store
+    - showroom
+    - outlet
+    type: string
+    x-enum-varnames:
+    - LocationWarehouse
+    - LocationStore
+    - LocationShowroom
+    - LocationOutlet
+  location.LocationWithRelationsResponse:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/location.SimpleLocation'
+        type: array
+      code:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      location:
+        type: string
+      manager:
+        $ref: '#/definitions/location.SimpleUserResponse'
+      manager_id:
+        type: integer
+      name:
+        type: string
+      office:
+        $ref: '#/definitions/location.SimpleOfficeResponse'
+      office_id:
+        type: integer
+      parent:
+        $ref: '#/definitions/location.SimpleLocation'
+      parent_id:
+        type: integer
+      type:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  location.SimpleLocation:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  location.SimpleOfficeResponse:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  location.SimpleUserResponse:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  location.UpdateLocationRequest:
+    properties:
+      code:
+        maxLength: 50
+        minLength: 2
+        type: string
+      is_active:
+        type: boolean
+      location:
+        maxLength: 500
+        type: string
+      manager_id:
+        type: integer
+      name:
+        maxLength: 200
+        minLength: 2
+        type: string
+      office_id:
+        type: integer
+      parent_id:
+        type: integer
+      type:
+        allOf:
+        - $ref: '#/definitions/location.LocationType'
+        enum:
+        - warehouse
+        - store
+        - showroom
+        - outlet
+    type: object
+  minor_category.CreateMinorCategoryRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+      sub_category_id:
+        type: integer
+    required:
+    - name
+    - sub_category_id
+    type: object
+  minor_category.UpdateMinorCategoryRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  office.CreateOfficeRequest:
+    properties:
+      location:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  office.UpdateOfficeRequest:
+    properties:
+      location:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+    type: object
+  partner_group.CreatePartnerGroupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  partner_group.UpdatePartnerGroupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  partner_sub_group.CreatePartnerSubGroupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+      partner_group_id:
+        type: integer
+    required:
+    - name
+    - partner_group_id
+    type: object
+  partner_sub_group.UpdatePartnerSubGroupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+      partner_group_id:
+        type: integer
+    required:
+    - name
+    - partner_group_id
+    type: object
+  price_type.CreatePriceTypeRequest:
+    properties:
+      description:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  price_type.UpdatePriceTypeRequest:
+    properties:
+      description:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  projects.ChangeStatusRequest:
+    properties:
+      status:
+        allOf:
+        - $ref: '#/definitions/projects.ProjectStatus'
+        enum:
+        - PLANNING
+        - ACTIVE
+        - ON_HOLD
+        - COMPLETED
+        - CANCELLED
+    required:
+    - status
+    type: object
+  projects.CreateProjectRequest:
+    properties:
+      budget:
+        example: 50000
+        type: number
+      description:
+        example: Description of the project
+        type: string
+      end_date:
+        example: "2024-12-31"
+        type: string
+      is_active:
+        example: true
+        type: boolean
+      manager_id:
+        example: 1
+        type: integer
+      office_id:
+        example: 1
+        type: integer
+      project_code:
+        example: PROJ-001
+        maxLength: 50
+        type: string
+      project_name:
+        example: New Office Project
+        maxLength: 255
+        type: string
+      start_date:
+        example: "2024-04-28"
+        type: string
+      status:
+        allOf:
+        - $ref: '#/definitions/projects.ProjectStatus'
+        enum:
+        - PLANNING
+        - ACTIVE
+        - ON_HOLD
+        - COMPLETED
+        - CANCELLED
+        example: PLANNING
+    required:
+    - office_id
+    - project_code
+    - project_name
+    type: object
+  projects.ListProjectsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/projects.ProjectResponse'
+        type: array
+      limit:
+        type: integer
+      page:
+        type: integer
+      total:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  projects.ManagerResponse:
+    properties:
+      email:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+    type: object
+  projects.OfficeResponse:
+    properties:
+      id:
+        type: integer
+      location:
+        type: string
+      office_name:
+        type: string
+    type: object
+  projects.ProjectResponse:
+    properties:
+      budget:
+        type: number
+      created_at:
+        type: string
+      description:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      manager:
+        $ref: '#/definitions/projects.ManagerResponse'
+      office:
+        $ref: '#/definitions/projects.OfficeResponse'
+      project_code:
+        type: string
+      project_name:
+        type: string
+      start_date:
+        type: string
+      status:
+        $ref: '#/definitions/projects.ProjectStatus'
+      updated_at:
+        type: string
+    type: object
+  projects.ProjectStatus:
+    enum:
+    - PLANNING
+    - ACTIVE
+    - ON_HOLD
+    - COMPLETED
+    - CANCELLED
+    type: string
+    x-enum-varnames:
+    - StatusPlanning
+    - StatusActive
+    - StatusOnHold
+    - StatusCompleted
+    - StatusCancelled
+  projects.UpdateProjectRequest:
+    properties:
+      budget:
+        example: 60000
+        type: number
+      description:
+        example: Updated description
+        maxLength: 1000
+        type: string
+      end_date:
+        example: "2024-11-30"
+        type: string
+      is_active:
+        example: true
+        type: boolean
+      project_code:
+        maxLength: 50
+        type: string
+      project_name:
+        example: Updated Project Name
+        maxLength: 255
+        type: string
+      start_date:
+        example: "2024-05-01"
+        type: string
+      status:
+        allOf:
+        - $ref: '#/definitions/projects.ProjectStatus'
+        enum:
+        - PLANNING
+        - ACTIVE
+        - ON_HOLD
+        - COMPLETED
+        - CANCELLED
+    type: object
+  purchaseorder.CreatePOItemRequest:
+    properties:
+      discount_percentage:
+        type: number
+      item_id:
+        type: integer
+      order_quantity:
+        type: number
+      remarks:
+        type: string
+      requisition_item_id:
+        type: integer
+      unit_price:
+        minimum: 0
+        type: number
+      uom_id:
+        type: integer
+      vat_percentage:
+        type: number
+    required:
+    - item_id
+    - order_quantity
+    - unit_price
+    type: object
+  purchaseorder.CreatePORequest:
+    properties:
+      delivery_date:
+        type: string
+      general_remarks:
+        type: string
+      items:
+        description: 'Items: required for DIRECT/CONTRACT, auto-populated from requisition
+          for REQUISITION_BASED'
+        items:
+          $ref: '#/definitions/purchaseorder.CreatePOItemRequest'
+        type: array
+      location_id:
+        type: integer
+      office_id:
+        type: integer
+      order_type:
+        allOf:
+        - $ref: '#/definitions/purchaseorder.POOrderType'
+        enum:
+        - DIRECT
+        - REQUISITION_BASED
+        - CONTRACT
+      payment_terms:
+        type: string
+      po_date:
+        type: string
+      requisition_id:
+        type: integer
+      shipping_address:
+        type: string
+      supplier_id:
+        type: integer
+    required:
+    - location_id
+    - office_id
+    - order_type
+    - po_date
+    - supplier_id
+    type: object
+  purchaseorder.POItemResponse:
+    properties:
+      created_at:
+        type: string
+      discount_amount:
+        type: number
+      discount_percentage:
+        type: number
+      id:
+        type: integer
+      item:
+        $ref: '#/definitions/purchaseorder.PORefDTO'
+      item_id:
+        type: integer
+      order_quantity:
+        type: number
+      po_id:
+        type: integer
+      received_quantity:
+        type: number
+      remarks:
+        type: string
+      requisition_item_id:
+        type: integer
+      total_amount:
+        type: number
+      unit_price:
+        type: number
+      uom_id:
+        type: integer
+      vat_amount:
+        type: number
+      vat_percentage:
+        type: number
+    type: object
+  purchaseorder.POOrderType:
+    enum:
+    - DIRECT
+    - REQUISITION_BASED
+    - CONTRACT
+    type: string
+    x-enum-varnames:
+    - POTypeDirect
+    - POTypeRequisitionBased
+    - POTypeContract
+  purchaseorder.POPaginationMeta:
+    properties:
+      limit:
+        type: integer
+      page:
+        type: integer
+      total:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  purchaseorder.PORefDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  purchaseorder.POResponse:
+    properties:
+      approved_at:
+        type: string
+      approved_by_id:
+        type: integer
+      created_at:
+        type: string
+      created_by_id:
+        type: integer
+      delivery_date:
+        type: string
+      discount_amount:
+        type: number
+      general_remarks:
+        type: string
+      id:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/purchaseorder.POItemResponse'
+        type: array
+      location:
+        $ref: '#/definitions/purchaseorder.PORefDTO'
+      location_id:
+        type: integer
+      office:
+        $ref: '#/definitions/purchaseorder.PORefDTO'
+      office_id:
+        type: integer
+      order_type:
+        $ref: '#/definitions/purchaseorder.POOrderType'
+      payment_terms:
+        type: string
+      po_date:
+        type: string
+      po_number:
+        type: string
+      requisition_id:
+        type: integer
+      shipping_address:
+        type: string
+      status:
+        $ref: '#/definitions/purchaseorder.POStatus'
+      subtotal:
+        type: number
+      supplier:
+        $ref: '#/definitions/purchaseorder.PORefDTO'
+      supplier_id:
+        type: integer
+      total_amount:
+        type: number
+      updated_at:
+        type: string
+      vat_amount:
+        type: number
+    type: object
+  purchaseorder.POStatus:
+    enum:
+    - PENDING
+    - ISSUED
+    - CONFIRMED
+    - PARTIALLY_RECEIVED
+    - FULLY_RECEIVED
+    - CANCELLED
+    type: string
+    x-enum-varnames:
+    - POStatusPending
+    - POStatusIssued
+    - POStatusConfirmed
+    - POStatusPartiallyReceived
+    - POStatusFullyReceived
+    - POStatusCancelled
+  purchaseorder.PaginatedPOResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/purchaseorder.POResponse'
+        type: array
+      pagination:
+        $ref: '#/definitions/purchaseorder.POPaginationMeta'
+    type: object
+  purchaseorder.UpdatePORequest:
+    properties:
+      delivery_date:
+        type: string
+      general_remarks:
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/purchaseorder.CreatePOItemRequest'
+        type: array
+      payment_terms:
+        type: string
+      shipping_address:
+        type: string
+    type: object
+  purchaseorder.UpdatePOStatusRequest:
+    properties:
+      remarks:
+        type: string
+      status:
+        $ref: '#/definitions/purchaseorder.POStatus'
+    required:
+    - status
+    type: object
+  purchasepayments.AdvancePaymentResponse:
+    properties:
+      account_head: {}
+      account_head_id:
+        type: integer
+      advance_payment_id:
+        type: integer
+      amount:
+        type: number
+      cash_amount:
+        type: number
+      lc_no:
+        type: string
+      narration:
+        type: string
+      office: {}
+      office_id:
+        type: integer
+      payment_date:
+        type: string
+      payment_mode: {}
+      payment_mode_id:
+        type: integer
+      po_id:
+        type: integer
+      purchase_order: {}
+      supplier_head: {}
+      supplier_head_id:
+        type: integer
+    type: object
+  purchasepayments.CreateAdvancePaymentRequest:
+    properties:
+      account_head_id:
+        type: integer
+      amount:
+        minimum: 0
+        type: number
+      cash_amount:
+        minimum: 0
+        type: number
+      lc_no:
+        maxLength: 100
+        type: string
+      narration:
+        maxLength: 1000
+        type: string
+      office_id:
+        type: integer
+      payment_date:
+        type: string
+      payment_mode_id:
+        type: integer
+      po_id:
+        type: integer
+      supplier_head_id:
+        type: integer
+    required:
+    - account_head_id
+    - amount
+    - cash_amount
+    - office_id
+    - payment_date
+    - payment_mode_id
+    - po_id
+    - supplier_head_id
+    type: object
+  purchasepayments.CreatePaymentByGRNRequest:
+    properties:
+      adjustment_amount:
+        minimum: 0
+        type: number
+      grn_id:
+        type: integer
+      money_receipt_no:
+        maxLength: 100
+        type: string
+      office_head_id:
+        type: integer
+      office_id:
+        type: integer
+      payable_amount:
+        minimum: 0
+        type: number
+      paying_amount:
+        minimum: 0
+        type: number
+      payment_date:
+        type: string
+      payment_mode_id:
+        type: integer
+      supplier_id:
+        type: integer
+    required:
+    - grn_id
+    - money_receipt_no
+    - office_head_id
+    - office_id
+    - payable_amount
+    - paying_amount
+    - payment_date
+    - payment_mode_id
+    - supplier_id
+    type: object
+  purchasepayments.CreateSupplierBillRequest:
+    properties:
+      advance:
+        minimum: 0
+        type: number
+      bill_amount:
+        minimum: 0
+        type: number
+      bill_no:
+        maxLength: 100
+        type: string
+      create_date:
+        type: string
+      discount:
+        minimum: 0
+        type: number
+      file_id:
+        type: integer
+      net_pay:
+        minimum: 0
+        type: number
+      office_id:
+        type: integer
+      remarks:
+        maxLength: 2000
+        type: string
+      sd:
+        minimum: 0
+        type: number
+      supplier_id:
+        type: integer
+      tent_pay_date:
+        type: string
+      vat:
+        minimum: 0
+        type: number
+      vat_challan_no:
+        maxLength: 100
+        type: string
+    required:
+    - bill_amount
+    - bill_no
+    - create_date
+    - net_pay
+    - office_id
+    - supplier_id
+    type: object
+  purchasepayments.PaginatedResponse:
+    properties:
+      data: {}
+      page:
+        type: integer
+      page_limit:
+        type: integer
+      total_count:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  purchasepayments.PaymentByGRNResponse:
+    properties:
+      adjustment_amount:
+        type: number
+      grn: {}
+      grn_id:
+        type: integer
+      money_receipt_no:
+        type: string
+      office: {}
+      office_head: {}
+      office_head_id:
+        type: integer
+      office_id:
+        type: integer
+      payable_amount:
+        type: number
+      paying_amount:
+        type: number
+      payment_by_grn_id:
+        type: integer
+      payment_date:
+        type: string
+      payment_mode: {}
+      payment_mode_id:
+        type: integer
+      supplier: {}
+      supplier_id:
+        type: integer
+    type: object
+  purchasepayments.SupplierBillResponse:
+    properties:
+      advance:
+        type: number
+      bill_amount:
+        type: number
+      bill_no:
+        type: string
+      create_date:
+        type: string
+      discount:
+        type: number
+      file: {}
+      file_id:
+        type: integer
+      net_pay:
+        type: number
+      office: {}
+      office_id:
+        type: integer
+      remarks:
+        type: string
+      sd:
+        type: number
+      supplier: {}
+      supplier_bill_id:
+        type: integer
+      supplier_id:
+        type: integer
+      tent_pay_date:
+        type: string
+      vat:
+        type: number
+      vat_challan_no:
+        type: string
+    type: object
+  purchasereturn.CreatePurchaseReturnRequest:
+    properties:
+      item_id:
+        type: integer
+      location_id:
+        type: integer
+      office_id:
+        type: integer
+      quantity:
+        type: number
+      remarks:
+        type: string
+      selling_price:
+        type: number
+      supplier_id:
+        type: integer
+    required:
+    - item_id
+    - location_id
+    - office_id
+    - quantity
+    - selling_price
+    - supplier_id
+    type: object
+  purchasereturn.ItemDTO:
+    properties:
+      barcode:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      sku:
+        type: string
+    type: object
+  purchasereturn.LocationDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      type:
+        type: string
+    type: object
+  purchasereturn.OfficeDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  purchasereturn.PaginatedPurchaseReturnResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/purchasereturn.PurchaseReturnResponse'
+        type: array
+      pagination:
+        $ref: '#/definitions/purchasereturn.PaginationMeta'
+    type: object
+  purchasereturn.PaginationMeta:
+    properties:
+      limit:
+        type: integer
+      page:
+        type: integer
+      total:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  purchasereturn.PurchaseReturnResponse:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      item:
+        $ref: '#/definitions/purchasereturn.ItemDTO'
+      item_id:
+        type: integer
+      location:
+        $ref: '#/definitions/purchasereturn.LocationDTO'
+      location_id:
+        type: integer
+      office:
+        $ref: '#/definitions/purchasereturn.OfficeDTO'
+      office_id:
+        type: integer
+      quantity:
+        type: number
+      remarks:
+        type: string
+      return_number:
+        type: string
+      selling_price:
+        type: number
+      supplier:
+        $ref: '#/definitions/purchasereturn.SupplierDTO'
+      supplier_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  purchasereturn.SupplierDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.CategoryDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.CreateRequisitionItemRequest:
+    properties:
+      average_cost:
+        type: number
+      category_id:
+        type: integer
+      current_stock:
+        type: number
+      description:
+        type: string
+      item_id:
+        type: integer
+      item_type_id:
+        description: '-----------  Classification ---------'
+        type: integer
+      last_cost:
+        type: number
+      minor_category_id:
+        type: integer
+      request_quantity:
+        type: number
+      sub_category_id:
+        type: integer
+    required:
+    - item_id
+    - request_quantity
+    type: object
+  requisitions.CreateRequisitionRequest:
+    properties:
+      buyer_id:
+        description: '--------- Optional fields ---------'
+        type: integer
+      department_id:
+        type: integer
+      description:
+        type: string
+      employee_id:
+        description: '--------- Party: RequisitionType ---------'
+        type: integer
+      expected_date:
+        type: string
+      inventory_type_id:
+        type: integer
+      items:
+        description: '--------- Items ---------'
+        items:
+          $ref: '#/definitions/requisitions.CreateRequisitionItemRequest'
+        minItems: 1
+        type: array
+      location_id:
+        type: integer
+      office_id:
+        type: integer
+      project_id:
+        type: integer
+      remarks:
+        type: string
+      requisition_type:
+        enum:
+        - EMPLOYEE
+        - DEPARTMENT
+        - PROJECT
+        type: string
+      supplier_id:
+        type: integer
+    required:
+    - expected_date
+    - items
+    - requisition_type
+    type: object
+  requisitions.DepartmentDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.InventoryTypeDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.ItemDTO:
+    properties:
+      barcode:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      sku:
+        type: string
+    type: object
+  requisitions.ItemTypeDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.LocationDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      type:
+        type: string
+    type: object
+  requisitions.MinorCategoryDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.OfficeDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.PaginatedRequisitionResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/requisitions.RequisitionResponse'
+        type: array
+      pagination:
+        $ref: '#/definitions/requisitions.PaginationMeta'
+    type: object
+  requisitions.PaginationMeta:
+    properties:
+      limit:
+        type: integer
+      page:
+        type: integer
+      total:
+        type: integer
+      total_pages:
+        type: integer
+    type: object
+  requisitions.ProjectDTO:
+    properties:
+      id:
+        type: integer
+      project_name:
+        type: string
+    type: object
+  requisitions.RequisitionItemResponse:
+    properties:
+      approved_quantity:
+        type: number
+      average_cost:
+        type: number
+      category:
+        $ref: '#/definitions/requisitions.CategoryDTO'
+      created_at:
+        type: string
+      current_stock:
+        type: number
+      description:
+        type: string
+      id:
+        type: integer
+      item:
+        $ref: '#/definitions/requisitions.ItemDTO'
+      item_id:
+        type: integer
+      item_type:
+        $ref: '#/definitions/requisitions.ItemTypeDTO'
+      last_cost:
+        type: number
+      minor_category:
+        $ref: '#/definitions/requisitions.MinorCategoryDTO'
+      request_quantity:
+        type: number
+      requisition_id:
+        type: integer
+      sub_category:
+        $ref: '#/definitions/requisitions.SubCategoryDTO'
+    type: object
+  requisitions.RequisitionResponse:
+    properties:
+      buyer:
+        $ref: '#/definitions/requisitions.UserDTO'
+      buyer_id:
+        type: integer
+      created_at:
+        type: string
+      created_by:
+        $ref: '#/definitions/requisitions.UserDTO'
+      created_by_id:
+        type: integer
+      created_date:
+        type: string
+      department:
+        $ref: '#/definitions/requisitions.DepartmentDTO'
+      department_id:
+        type: integer
+      description:
+        type: string
+      employee:
+        allOf:
+        - $ref: '#/definitions/requisitions.UserDTO'
+        description: '------------------ Relations (populated when available) -----------------'
+      employee_id:
+        description: '-------------  IDs --------------------'
+        type: integer
+      expected_date:
+        type: string
+      id:
+        type: integer
+      inventory_type:
+        $ref: '#/definitions/requisitions.InventoryTypeDTO'
+      inventory_type_id:
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/requisitions.RequisitionItemResponse'
+        type: array
+      location:
+        $ref: '#/definitions/requisitions.LocationDTO'
+      location_id:
+        type: integer
+      office:
+        $ref: '#/definitions/requisitions.OfficeDTO'
+      office_id:
+        type: integer
+      project:
+        $ref: '#/definitions/requisitions.ProjectDTO'
+      project_id:
+        type: integer
+      rejection_reason:
+        type: string
+      remarks:
+        type: string
+      requisition_number:
+        type: string
+      requisition_type:
+        $ref: '#/definitions/requisitions.RequisitionType'
+      status:
+        $ref: '#/definitions/requisitions.RequisitionStatus'
+      status_history:
+        items:
+          $ref: '#/definitions/requisitions.RequisitionStatusHistoryResponse'
+        type: array
+      supplier:
+        $ref: '#/definitions/requisitions.SupplierDTO'
+      supplier_id:
+        type: integer
+      updated_at:
+        type: string
+      updated_by:
+        $ref: '#/definitions/requisitions.UserDTO'
+      updated_by_id:
+        type: integer
+    type: object
+  requisitions.RequisitionStatus:
+    enum:
+    - PENDING
+    - DEPARTMENT_APPROVED
+    - FINANCE_APPROVED
+    - APPROVED
+    - REJECTED
+    - CANCELLED
+    - ORDERED
+    type: string
+    x-enum-varnames:
+    - StatusPending
+    - StatusDepartmentApproved
+    - StatusFinanceApproved
+    - StatusApproved
+    - StatusRejected
+    - StatusCancelled
+    - StatusOrdered
+  requisitions.RequisitionStatusHistoryResponse:
+    properties:
+      action_type:
+        type: string
+      created_at:
+        type: string
+      from_status:
+        type: string
+      id:
+        type: integer
+      remarks:
+        type: string
+      requisition_id:
+        type: integer
+      to_status:
+        type: string
+      user:
+        $ref: '#/definitions/requisitions.UserDTO'
+    type: object
+  requisitions.RequisitionType:
+    enum:
+    - EMPLOYEE
+    - DEPARTMENT
+    - PROJECT
+    type: string
+    x-enum-varnames:
+    - EmployeeRequisition
+    - DepartmentRequisition
+    - ProjectRequisition
+  requisitions.SubCategoryDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.SupplierDTO:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  requisitions.UpdateRequisitionItemRequest:
+    properties:
+      average_cost:
+        type: number
+      category_id:
+        type: integer
+      current_stock:
+        type: number
+      description:
+        type: string
+      item_id:
+        type: integer
+      item_type_id:
+        description: '-----------  Classification ---------'
+        type: integer
+      last_cost:
+        type: number
+      minor_category_id:
+        type: integer
+      request_quantity:
+        type: number
+      sub_category_id:
+        type: integer
+    type: object
+  requisitions.UpdateRequisitionRequest:
+    properties:
+      buyer_id:
+        type: integer
+      description:
+        type: string
+      expected_date:
+        type: string
+      inventory_type_id:
+        type: integer
+      items:
+        description: '------ Items update CAN be update but no optional---'
+        items:
+          $ref: '#/definitions/requisitions.UpdateRequisitionItemRequest'
+        type: array
+      location_id:
+        type: integer
+      office_id:
+        type: integer
+      remarks:
+        type: string
+      supplier_id:
+        type: integer
+    type: object
+  requisitions.UpdateRequisitionStatusRequest:
+    properties:
+      rejection_reason:
+        type: string
+      remarks:
+        type: string
+      status:
+        type: string
+    required:
+    - status
+    type: object
+  requisitions.UserDTO:
+    properties:
+      email:
+        type: string
+      employee_id:
+        type: string
+      id:
+        type: integer
+      mobile:
+        type: string
+      name:
+        type: string
+    type: object
+  response.APIResponse:
+    properties:
+      data: {}
+      details: {}
+      error_code:
+        type: string
+      message:
+        type: string
+      success:
+        type: boolean
+    type: object
+  responsibility_transfer.ApproveTransferRequest:
+    properties:
+      status:
+        enum:
+        - Approved
+        - Rejected
+        type: string
+    required:
+    - status
+    type: object
+  responsibility_transfer.createTransferRequest:
+    properties:
+      from_date:
+        example: "2026-04-04"
+        type: string
+      from_user_id:
+        example: 1
+        type: integer
+      remarks:
+        example: Transferring duties
+        type: string
+      to_date:
+        example: "2026-04-10"
+        type: string
+      to_user_id:
+        example: 2
+        type: integer
+    required:
+    - from_date
+    - from_user_id
+    - to_date
+    - to_user_id
+    type: object
+  role.CreateRoleRequest:
+    properties:
+      description:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      permission_ids:
+        items:
+          type: integer
+        type: array
+    required:
+    - name
+    type: object
+  role.UpdateRoleRequest:
+    properties:
+      description:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      permission_ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  sales_representative.CreateSalesRepresentativeRequest:
+    properties:
+      commission_rate:
+        type: number
+      email:
+        type: string
+      is_active:
+        type: boolean
+      mobile:
+        type: string
+      name:
+        type: string
+    required:
+    - mobile
+    - name
+    type: object
+  sales_representative.UpdateSalesRepresentativeRequest:
+    properties:
+      commission_rate:
+        type: number
+      email:
+        type: string
+      is_active:
+        type: boolean
+      mobile:
+        type: string
+      name:
+        type: string
+    required:
+    - mobile
+    - name
+    type: object
+  sales_setup.CreateSalesSetupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  sales_setup.UpdateSalesSetupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  sales_supply_type.CreateSalesSupplyTypeRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  sales_supply_type.UpdateSalesSupplyTypeRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  sales_tax_setup.CreateSalesTaxSetupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  sales_tax_setup.UpdateSalesTaxSetupRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  sub_category.CreateSubCategoryRequest:
+    properties:
+      category_id:
+        type: integer
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - category_id
+    - name
+    type: object
+  sub_category.UpdateSubCategoryRequest:
+    properties:
+      category_id:
+        type: integer
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - category_id
+    - name
+    type: object
+  supplier.CreateSupplierRequest:
+    properties:
+      address:
+        type: string
+      attachment:
+        type: string
+      billing_address:
+        type: string
+      billing_contact_no:
+        type: string
+      billing_contact_person:
+        type: string
+      bin_number:
+        type: string
+      code:
+        type: string
+      contact_person:
+        type: string
+      credit_days:
+        type: integer
+      district_id:
+        type: integer
+      email:
+        type: string
+      gps:
+        type: string
+      is_anonymous:
+        type: boolean
+      is_foreign_supplier:
+        type: boolean
+      is_vat_accounting_not_applicable:
+        type: boolean
+      mobile_no:
+        type: string
+      name:
+        type: string
+      office_id:
+        type: integer
+      partner_group_id:
+        type: integer
+      partner_sub_group_id:
+        type: integer
+      remarks:
+        type: string
+      tax_bracket_id:
+        type: integer
+      tcs_percentage:
+        type: number
+      thana_id:
+        type: integer
+      tin_number:
+        type: string
+      tolerance:
+        type: number
+      trade_license_number:
+        type: string
+      vat_reg_no:
+        type: string
+      vat_reg_no_central:
+        type: string
+      vds_applicable:
+        type: boolean
+      vendor_name:
+        type: string
+    required:
+    - mobile_no
+    - name
+    - office_id
+    type: object
+  supplier.UpdateSupplierRequest:
+    properties:
+      address:
+        type: string
+      attachment:
+        type: string
+      billing_address:
+        type: string
+      billing_contact_no:
+        type: string
+      billing_contact_person:
+        type: string
+      bin_number:
+        type: string
+      code:
+        type: string
+      contact_person:
+        type: string
+      credit_days:
+        type: integer
+      district_id:
+        type: integer
+      email:
+        type: string
+      gps:
+        type: string
+      is_anonymous:
+        type: boolean
+      is_foreign_supplier:
+        type: boolean
+      is_vat_accounting_not_applicable:
+        type: boolean
+      mobile_no:
+        type: string
+      name:
+        type: string
+      office_id:
+        type: integer
+      partner_group_id:
+        type: integer
+      partner_sub_group_id:
+        type: integer
+      remarks:
+        type: string
+      tax_bracket_id:
+        type: integer
+      tcs_percentage:
+        type: number
+      thana_id:
+        type: integer
+      tin_number:
+        type: string
+      tolerance:
+        type: number
+      trade_license_number:
+        type: string
+      vat_reg_no:
+        type: string
+      vat_reg_no_central:
+        type: string
+      vds_applicable:
+        type: boolean
+      vendor_name:
+        type: string
+    type: object
+  tags.CreateTagsRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  tags.UpdateTagsRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  tax_bracket.CreateTaxBracketRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+      percentage:
+        type: number
+    required:
+    - name
+    type: object
+  tax_bracket.UpdateTaxBracketRequest:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+      percentage:
+        type: number
+    required:
+    - name
+    type: object
+  thana.CreateThanaRequest:
+    properties:
+      district_id:
+        type: integer
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - district_id
+    - name
+    type: object
+  thana.UpdateThanaRequest:
+    properties:
+      district_id:
+        type: integer
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - district_id
+    - name
+    type: object
+  transaction_history.CreateDeleteHistoryRequest:
+    properties:
+      amount:
+        type: number
+      invoice_ref_no:
+        type: string
+      reason_remarks:
+        type: string
+      transaction_type:
+        type: string
+    required:
+    - invoice_ref_no
+    - transaction_type
+    type: object
+  umo_measurement.CreatePackageUom:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  umo_measurement.UpdatePackageUom:
+    properties:
+      name:
+        maxLength: 150
+        minLength: 2
+        type: string
+    required:
+    - name
+    type: object
+  uploads.CreateFolderRequest:
+    properties:
+      name:
+        maxLength: 255
+        minLength: 1
+        type: string
+      parent_id:
+        type: integer
+    required:
+    - name
+    type: object
+  uploads.ErrorResponse:
+    properties:
+      code:
+        type: string
+      error:
+        type: string
+      message:
+        type: string
+    type: object
+  uploads.FileResponse:
+    properties:
+      created_at:
+        type: string
+      extension:
+        type: string
+      file_type:
+        type: string
+      folder_name:
+        type: string
+      id:
+        type: integer
+      is_public:
+        type: boolean
+      mime_type:
+        type: string
+      name:
+        type: string
+      original_name:
+        type: string
+      size:
+        type: integer
+      storage_path:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  uploads.FolderContentsResponse:
+    properties:
+      file_total:
+        type: integer
+      files:
+        items:
+          $ref: '#/definitions/uploads.FileResponse'
+        type: array
+      folder_total:
+        type: integer
+      folders:
+        items:
+          $ref: '#/definitions/uploads.FolderResponse'
+        type: array
+      limit:
+        type: integer
+      page:
+        type: integer
+    type: object
+  uploads.FolderResponse:
+    properties:
+      created_at:
+        type: string
+      file_count:
+        type: integer
+      id:
+        type: integer
+      level:
+        type: integer
+      name:
+        type: string
+      parent_id:
+        type: integer
+      storage_path:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  uploads.FolderResponseWithChildren:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/uploads.FolderResponseWithChildren'
+        type: array
+      created_at:
+        type: string
+      file_count:
+        type: integer
+      id:
+        type: integer
+      level:
+        type: integer
+      name:
+        type: string
+      parent_id:
+        type: integer
+      storage_path:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  uploads.ListResponse:
+    properties:
+      data: {}
+      limit:
+        type: integer
+      message:
+        type: string
+      page:
+        type: integer
+      success:
+        type: boolean
+      total:
+        type: integer
+    type: object
+  uploads.MessageResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  uploads.MoveFileRequest:
+    properties:
+      folder_id:
+        type: integer
+    required:
+    - folder_id
+    type: object
+  uploads.UpdateFolderRequest:
+    properties:
+      name:
+        type: string
+    type: object
+  uploads.UploadResponse:
+    properties:
+      failed:
+        items:
+          type: string
+        type: array
+      files:
+        items:
+          $ref: '#/definitions/uploads.FileResponse'
+        type: array
+    type: object
+  user.loginRequest:
+    properties:
+      email:
+        example: admin@admin.com
+        type: string
+      password:
+        example: "123456"
+        maxLength: 72
+        minLength: 6
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  user.refreshTokenRequest:
+    properties:
+      refresh_token:
+        type: string
+    required:
+    - refresh_token
+    type: object
+  user.registerRequest:
+    properties:
+      account_number:
+        example: "1234567890"
+        type: string
+      bank_name:
+        example: Sonali Bank
+        type: string
+      blood_group:
+        example: O+
+        type: string
+      department_id:
+        example: 1
+        type: integer
+      designation_id:
+        example: 1
+        type: integer
+      dob:
+        example: "1990-01-01"
+        type: string
+      email:
+        example: john@example.com
+        type: string
+      employee_id:
+        example: EMP001
+        type: string
+      gender:
+        example: Male
+        type: string
+      gross_salary:
+        example: 50000
+        type: number
+      joining_date:
+        example: "2023-01-01"
+        type: string
+      mobile:
+        example: "01711223344"
+        type: string
+      name:
+        example: John Doe
+        maxLength: 150
+        minLength: 2
+        type: string
+      office_id:
+        example: 1
+        type: integer
+      password:
+        example: "123456"
+        maxLength: 72
+        minLength: 6
+        type: string
+      payment_mode_id:
+        example: 1
+        type: integer
+      role_id:
+        example: 1
+        type: integer
+    required:
+    - designation_id
+    - email
+    - employee_id
+    - joining_date
+    - mobile
+    - name
+    - office_id
+    - password
+    type: object
+  user.updateUserRequest:
+    properties:
+      account_number:
+        example: "1234567890"
+        type: string
+      bank_name:
+        example: Sonali Bank
+        type: string
+      blood_group:
+        example: O+
+        type: string
+      department_id:
+        example: 1
+        type: integer
+      designation_id:
+        example: 1
+        type: integer
+      dob:
+        example: "1990-01-01"
+        type: string
+      email:
+        example: john@example.com
+        type: string
+      employee_id:
+        example: EMP001
+        type: string
+      gender:
+        example: Male
+        type: string
+      gross_salary:
+        example: 50000
+        type: number
+      joining_date:
+        example: "2023-01-01"
+        type: string
+      mobile:
+        example: "01711223344"
+        type: string
+      name:
+        example: John Doe
+        type: string
+      office_id:
+        example: 1
+        type: integer
+      password:
+        example: "123456"
+        type: string
+      payment_mode_id:
+        example: 1
+        type: integer
+      role_id:
+        example: 1
+        type: integer
+    type: object
+  wallet.CreateWalletRequest:
+    properties:
+      bank_account:
+        type: string
+      commission_percent:
+        type: number
+      is_active:
+        description: Use pointer to handle boolean false in binding
+        type: boolean
+      is_coupon:
+        type: boolean
+      is_rounding:
+        type: boolean
+      is_wallet_charge:
+        type: boolean
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+      reference_code:
+        type: string
+    required:
+    - name
+    type: object
+  wallet.UpdateWalletRequest:
+    properties:
+      bank_account:
+        type: string
+      commission_percent:
+        type: number
+      is_active:
+        type: boolean
+      is_coupon:
+        type: boolean
+      is_rounding:
+        type: boolean
+      is_wallet_charge:
+        type: boolean
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+      reference_code:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Backend API for ASSMI Super Shop ERP.
+  title: ASSMI Super Shop ERP API
+  version: "1.0"
+paths:
+  /audit/transaction-history:
+    get:
+      description: Get transition delete history with optional filters
+      parameters:
+      - description: Transaction Type
+        in: query
+        name: transaction_type
+        type: string
+      - description: Deleted By User ID
+        in: query
+        name: deleted_by
+        type: integer
+      - description: From Date (YYYY-MM-DD)
+        in: query
+        name: from_date
+        type: string
+      - description: To Date (YYYY-MM-DD)
+        in: query
+        name: to_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List transaction delete history
+      tags:
+      - Transaction History
+    post:
+      consumes:
+      - application/json
+      description: Create a new record of a deleted transaction
+      parameters:
+      - description: Create history request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/transaction_history.CreateDeleteHistoryRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create transaction delete history
+      tags:
+      - Transaction History
+  /audit/transaction-history/{id}:
+    delete:
+      description: Delete a record from the transaction history log
+      parameters:
+      - description: History ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete transaction history record
+      tags:
+      - Transaction History
+  /auth/departments:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all departments
+      tags:
+      - auth--------------------------------- Departments
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: department payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/department.CreateDepartmentRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new department
+      tags:
+      - auth--------------------------------- Departments
+  /auth/departments/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Department ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete department
+      tags:
+      - auth--------------------------------- Departments
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Department ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get department by ID
+      tags:
+      - auth--------------------------------- Departments
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Department ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: department payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/department.UpdateDepartmentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update department
+      tags:
+      - auth--------------------------------- Departments
+  /auth/designations:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all designations
+      tags:
+      - auth--------------------------------- Designations
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: designation payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/designation.CreateDesignationRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new designation
+      tags:
+      - auth--------------------------------- Designations
+  /auth/designations/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Designation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete designation
+      tags:
+      - auth--------------------------------- Designations
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Designation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get designation by ID
+      tags:
+      - auth--------------------------------- Designations
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Designation ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: designation payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/designation.UpdateDesignationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update designation
+      tags:
+      - auth--------------------------------- Designations
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Authenticates user and returns access and refresh tokens
+      parameters:
+      - description: login payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/user.loginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      summary: Login user
+      tags:
+      - Auth
+  /auth/offices:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all offices
+      tags:
+      - auth--------------------------------- Offices
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: office payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/office.CreateOfficeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new office
+      tags:
+      - auth--------------------------------- Offices
+  /auth/offices/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Office ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete office
+      tags:
+      - auth--------------------------------- Offices
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Office ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get office by ID
+      tags:
+      - auth--------------------------------- Offices
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Office ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: office payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/office.UpdateOfficeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update office
+      tags:
+      - auth--------------------------------- Offices
+  /auth/payment-modes:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all payment modes
+      tags:
+      - Payment Modes
+  /auth/permissions:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all available permissions
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all permissions
+      tags:
+      - Permissions
+  /auth/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Issues a new access token and refresh token from a valid refresh
+        token
+      parameters:
+      - description: refresh token payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/user.refreshTokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      summary: Refresh token
+      tags:
+      - Auth
+  /auth/responsibility-transfers:
+    get:
+      description: Get all responsibility transfers with optional filters
+      parameters:
+      - description: From User ID
+        in: query
+        name: from_user_id
+        type: integer
+      - description: To User ID
+        in: query
+        name: to_user_id
+        type: integer
+      - description: From Date (YYYY-MM-DD)
+        in: query
+        name: from_date
+        type: string
+      - description: To Date (YYYY-MM-DD)
+        in: query
+        name: to_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List responsibility transfers
+      tags:
+      - Responsibility Transfer
+    post:
+      consumes:
+      - application/json
+      description: Create a new responsibility transfer request
+      parameters:
+      - description: Create transfer request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/responsibility_transfer.createTransferRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create responsibility transfer
+      tags:
+      - Responsibility Transfer
+  /auth/responsibility-transfers/{id}:
+    delete:
+      description: Delete a responsibility transfer
+      parameters:
+      - description: Transfer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete responsibility transfer
+      tags:
+      - Responsibility Transfer
+    get:
+      description: Get a responsibility transfer by ID
+      parameters:
+      - description: Transfer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get responsibility transfer
+      tags:
+      - Responsibility Transfer
+  /auth/responsibility-transfers/{id}/approve:
+    post:
+      consumes:
+      - application/json
+      description: Approve or reject a responsibility transfer request
+      parameters:
+      - description: Transfer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Approval request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/responsibility_transfer.ApproveTransferRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Approve/Reject responsibility transfer
+      tags:
+      - Responsibility Transfer
+  /auth/roles:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all roles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all roles
+      tags:
+      - Roles
+    post:
+      consumes:
+      - application/json
+      description: Create a new role with optional permissions
+      parameters:
+      - description: role payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/role.CreateRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new role
+      tags:
+      - Roles
+  /auth/roles/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a role by its ID
+      parameters:
+      - description: Role ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete role
+      tags:
+      - Roles
+    get:
+      consumes:
+      - application/json
+      description: Get details of a role by its ID
+      parameters:
+      - description: Role ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get role by ID
+      tags:
+      - Roles
+    put:
+      consumes:
+      - application/json
+      description: Update role details and permissions
+      parameters:
+      - description: Role ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: role payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/role.UpdateRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update role
+      tags:
+      - Roles
+  /auth/users:
+    get:
+      description: Returns a list of all users with roles and permissions with pagination.
+      parameters:
+      - default: 1
+        description: 'Page number (default: 1)'
+        in: query
+        name: page
+        type: integer
+      - default: 20
+        description: 'Items per page (default: 20, max: 100)'
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List users
+      tags:
+      - Auth User Management
+  /auth/users/{id}:
+    delete:
+      description: Deletes a user and revokes all tokens. Superadmins cannot be deleted.
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete user
+      tags:
+      - Auth User Management
+    get:
+      description: Returns a single user by ID with roles and permissions
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get user
+      tags:
+      - Auth User Management
+    put:
+      consumes:
+      - application/json
+      description: Updates user details and employee information. Password change
+        forces logout.
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: update payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/user.updateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update user
+      tags:
+      - Auth User Management
+  /auth/users/create-user:
+    post:
+      consumes:
+      - application/json
+      description: Registers a new user and returns access and refresh tokens
+      parameters:
+      - description: register payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/user.registerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Register user
+      tags:
+      - Auth User Management
+  /auth/users/me:
+    get:
+      description: Returns current authenticated user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Current user profile
+      tags:
+      - Auth User Management
+  /auth/wallets:
+    get:
+      description: Get all wallets
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List wallets
+      tags:
+      - Wallet
+    post:
+      consumes:
+      - application/json
+      description: Create a new wallet
+      parameters:
+      - description: Create wallet request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/wallet.CreateWalletRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create wallet
+      tags:
+      - Wallet
+  /auth/wallets/{id}:
+    delete:
+      description: Delete a wallet
+      parameters:
+      - description: Wallet ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete wallet
+      tags:
+      - Wallet
+    get:
+      description: Get wallet by ID
+      parameters:
+      - description: Wallet ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get wallet
+      tags:
+      - Wallet
+    put:
+      consumes:
+      - application/json
+      description: Update an existing wallet
+      parameters:
+      - description: Wallet ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Update wallet request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/wallet.UpdateWalletRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update wallet
+      tags:
+      - Wallet
+  /health:
+    get:
+      description: Returns service health status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      summary: Health check
+      tags:
+      - System
+  /partners/customers:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all customers
+      tags:
+      - Customers
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: customer payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/customer.CreateCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new customer
+      tags:
+      - Customers
+  /partners/customers/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Customer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete customer
+      tags:
+      - Customers
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Customer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get customer by ID
+      tags:
+      - Customers
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Customer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: customer payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/customer.UpdateCustomerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update customer
+      tags:
+      - Customers
+  /partners/districts:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all districts
+      tags:
+      - Districts
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: district payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/district.CreateDistrictRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new district
+      tags:
+      - Districts
+  /partners/districts/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: District ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete district
+      tags:
+      - Districts
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: District ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get district by ID
+      tags:
+      - Districts
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: District ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: district payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/district.UpdateDistrictRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update district
+      tags:
+      - Districts
+  /partners/partner-groups:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all partner groups
+      tags:
+      - Partner Groups
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: partner group payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/partner_group.CreatePartnerGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new partner group
+      tags:
+      - Partner Groups
+  /partners/partner-groups/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Group ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete partner group
+      tags:
+      - Partner Groups
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Group ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get partner group by ID
+      tags:
+      - Partner Groups
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Group ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: partner group payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/partner_group.UpdatePartnerGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update partner group
+      tags:
+      - Partner Groups
+  /partners/partner-sub-groups:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Group ID to filter
+        in: query
+        name: partner_group_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all partner sub groups
+      tags:
+      - Partner Sub Groups
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: partner sub group payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/partner_sub_group.CreatePartnerSubGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new partner sub group
+      tags:
+      - Partner Sub Groups
+  /partners/partner-sub-groups/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Sub Group ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete partner sub group
+      tags:
+      - Partner Sub Groups
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Sub Group ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get partner sub group by ID
+      tags:
+      - Partner Sub Groups
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Partner Sub Group ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: partner sub group payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/partner_sub_group.UpdatePartnerSubGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update partner sub group
+      tags:
+      - Partner Sub Groups
+  /partners/price-types:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all price types
+      tags:
+      - Price Types
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: price type payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/price_type.CreatePriceTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new price type
+      tags:
+      - Price Types
+  /partners/price-types/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Price Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete price type
+      tags:
+      - Price Types
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Price Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get price type by ID
+      tags:
+      - Price Types
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Price Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: price type payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/price_type.UpdatePriceTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update price type
+      tags:
+      - Price Types
+  /partners/sales-representatives:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all sales representatives
+      tags:
+      - Sales Representatives
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sales representative payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_representative.CreateSalesRepresentativeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new sales representative
+      tags:
+      - Sales Representatives
+  /partners/sales-representatives/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Representative ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete sales representative
+      tags:
+      - Sales Representatives
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Representative ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get sales representative by ID
+      tags:
+      - Sales Representatives
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Representative ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: sales representative payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_representative.UpdateSalesRepresentativeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update sales representative
+      tags:
+      - Sales Representatives
+  /partners/suppliers:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all suppliers
+      tags:
+      - Suppliers
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: supplier payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/supplier.CreateSupplierRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new supplier
+      tags:
+      - Suppliers
+  /partners/suppliers/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Supplier ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete supplier
+      tags:
+      - Suppliers
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Supplier ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get supplier by ID
+      tags:
+      - Suppliers
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Supplier ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: supplier payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/supplier.UpdateSupplierRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update supplier
+      tags:
+      - Suppliers
+  /partners/tax-brackets:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all tax brackets
+      tags:
+      - Tax Brackets
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: tax bracket payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/tax_bracket.CreateTaxBracketRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new tax bracket
+      tags:
+      - Tax Brackets
+  /partners/tax-brackets/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Tax Bracket ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete tax bracket
+      tags:
+      - Tax Brackets
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Tax Bracket ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get tax bracket by ID
+      tags:
+      - Tax Brackets
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Tax Bracket ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: tax bracket payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/tax_bracket.UpdateTaxBracketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update tax bracket
+      tags:
+      - Tax Brackets
+  /partners/thanas:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: District ID to filter
+        in: query
+        name: district_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all thanas
+      tags:
+      - Thanas
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: thana payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/thana.CreateThanaRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new thana
+      tags:
+      - Thanas
+  /partners/thanas/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Thana ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete thana
+      tags:
+      - Thanas
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Thana ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get thana by ID
+      tags:
+      - Thanas
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Thana ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: thana payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/thana.UpdateThanaRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update thana
+      tags:
+      - Thanas
+  /profile-items/categories:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all categories with full hierarchy (Department>Category>SubCategory>MinorCategory)
+      tags:
+      - iteam-profile--------------------- Categories
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: category payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/category.CreateCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new category
+      tags:
+      - iteam-profile--------------------- Categories
+  /profile-items/categories/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete category
+      tags:
+      - iteam-profile--------------------- Categories
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get category by ID with full hierarchy (Department>Category>SubCategory>MinorCategory)
+      tags:
+      - iteam-profile--------------------- Categories
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: category payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/category.UpdateCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update category
+      tags:
+      - iteam-profile--------------------- Categories
+  /profile-items/item-types:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all item types
+      tags:
+      - iteam-profile--------------------- ItemTypes
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: item type payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/item_type.CreateItemTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new item type
+      tags:
+      - iteam-profile--------------------- ItemTypes
+  /profile-items/item-types/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Item Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete item type
+      tags:
+      - iteam-profile--------------------- ItemTypes
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Item Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get item type by ID
+      tags:
+      - iteam-profile--------------------- ItemTypes
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Item Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: item type payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/item_type.UpdateItemTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update item type
+      tags:
+      - iteam-profile--------------------- ItemTypes
+  /profile-items/items:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves all items with optional pagination and sorting
+      parameters:
+      - description: 'Page number (default: 1)'
+        in: query
+        name: page
+        type: integer
+      - description: 'Items per page (default: 20, max: 100)'
+        in: query
+        name: limit
+        type: integer
+      - description: Sort field
+        in: query
+        name: sort
+        type: string
+      - description: Sort order (asc/desc)
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/items.ListResponse'
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all items with pagination
+      tags:
+      - Create-Items--------------items
+    post:
+      consumes:
+      - application/json
+      description: Creates a new item with all required fields
+      parameters:
+      - description: item creation payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/items.CreateItemRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/items.ItemResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new item
+      tags:
+      - Create-Items--------------items
+  /profile-items/items/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Soft deletes an item by its ID
+      parameters:
+      - description: Item ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete an item
+      tags:
+      - Create-Items--------------items
+    get:
+      consumes:
+      - application/json
+      description: Retrieves a single item by its ID
+      parameters:
+      - description: Item ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/items.ItemResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get a specific item by ID
+      tags:
+      - Create-Items--------------items
+    patch:
+      consumes:
+      - application/json
+      description: Updates an existing item with provided fields
+      parameters:
+      - description: Item ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: item update payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/items.UpdateItemRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/items.ItemResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update an item
+      tags:
+      - Create-Items--------------items
+  /profile-items/minor-categories:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all minor categories
+      tags:
+      - iteam-profile--------------------- MinorCategories
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: minor category payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/minor_category.CreateMinorCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new minor category
+      tags:
+      - iteam-profile--------------------- MinorCategories
+  /profile-items/minor-categories/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Minor Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete minor category
+      tags:
+      - iteam-profile--------------------- MinorCategories
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Minor Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get minor category by ID
+      tags:
+      - iteam-profile--------------------- MinorCategories
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Minor Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: minor category payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/minor_category.UpdateMinorCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update minor category
+      tags:
+      - iteam-profile--------------------- MinorCategories
+  /profile-items/sales-setups:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all sales setups
+      tags:
+      - iteam-profile--------------------- SalesSetups
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sales setup payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_setup.CreateSalesSetupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new sales setup
+      tags:
+      - iteam-profile--------------------- SalesSetups
+  /profile-items/sales-setups/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Setup ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete sales setup
+      tags:
+      - iteam-profile--------------------- SalesSetups
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Setup ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get sales setup by ID
+      tags:
+      - iteam-profile--------------------- SalesSetups
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Setup ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: sales setup payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_setup.UpdateSalesSetupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update sales setup
+      tags:
+      - iteam-profile--------------------- SalesSetups
+  /profile-items/sales-supply-types:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all sales supply types
+      tags:
+      - iteam-profile--------------------- SalesSupplyTypes
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sales supply type payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_supply_type.CreateSalesSupplyTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new sales supply type
+      tags:
+      - iteam-profile--------------------- SalesSupplyTypes
+  /profile-items/sales-supply-types/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Supply Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete sales supply type
+      tags:
+      - iteam-profile--------------------- SalesSupplyTypes
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Supply Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get sales supply type by ID
+      tags:
+      - iteam-profile--------------------- SalesSupplyTypes
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Supply Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: sales supply type payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_supply_type.UpdateSalesSupplyTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update sales supply type
+      tags:
+      - iteam-profile--------------------- SalesSupplyTypes
+  /profile-items/sales-tax-setups:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all sales tax setups
+      tags:
+      - iteam-profile--------------------- SalesTaxSetups
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sales tax setup payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_tax_setup.CreateSalesTaxSetupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new sales tax setup
+      tags:
+      - iteam-profile--------------------- SalesTaxSetups
+  /profile-items/sales-tax-setups/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Tax Setup ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete sales tax setup
+      tags:
+      - iteam-profile--------------------- SalesTaxSetups
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Tax Setup ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get sales tax setup by ID
+      tags:
+      - iteam-profile--------------------- SalesTaxSetups
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sales Tax Setup ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: sales tax setup payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sales_tax_setup.UpdateSalesTaxSetupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update sales tax setup
+      tags:
+      - iteam-profile--------------------- SalesTaxSetups
+  /profile-items/sub-categories:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all sub-categories
+      tags:
+      - iteam-profile -----------------------SubCategories
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sub-category payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sub_category.CreateSubCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new sub-category
+      tags:
+      - iteam-profile -----------------------SubCategories
+  /profile-items/sub-categories/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: SubCategory ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete sub-category
+      tags:
+      - iteam-profile -----------------------SubCategories
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: SubCategory ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get sub-category by ID
+      tags:
+      - iteam-profile -----------------------SubCategories
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: SubCategory ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: sub-category payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/sub_category.UpdateSubCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update sub-category
+      tags:
+      - iteam-profile -----------------------SubCategories
+  /profile-items/tags:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all tags
+      tags:
+      - iteam-profile----------------------- Tags
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: tag payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/tags.CreateTagsRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new tag
+      tags:
+      - iteam-profile----------------------- Tags
+  /profile-items/tags/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Tag ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete tag
+      tags:
+      - iteam-profile----------------------- Tags
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Tag ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get tag by ID
+      tags:
+      - iteam-profile----------------------- Tags
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Tag ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: tag payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/tags.UpdateTagsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update tag
+      tags:
+      - iteam-profile----------------------- Tags
+  /profile-items/uom:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: List all package uom
+      tags:
+      - iteam-profile---------------------Uom
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: package uom payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/umo_measurement.CreatePackageUom'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new uom
+      tags:
+      - iteam-profile---------------------Uom
+  /profile-items/uom/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: uom ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete uom
+      tags:
+      - iteam-profile---------------------Uom
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: UOM ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Get uom by ID
+      tags:
+      - iteam-profile---------------------Uom
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: uom ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: uom payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/umo_measurement.UpdatePackageUom'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Update uom
+      tags:
+      - iteam-profile---------------------Uom
+  /purchase/advance-payments:
+    get:
+      parameters:
+      - default: 1
+        description: Page
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Records/page
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchasepayments.PaginatedResponse'
+      security:
+      - BearerAuth: []
+      summary: List advance payments
+      tags:
+      - purchase------------------------- purchase-payments
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchasepayments.CreateAdvancePaymentRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/purchasepayments.AdvancePaymentResponse'
+      security:
+      - BearerAuth: []
+      summary: Create an advance payment
+      tags:
+      - purchase------------------------- purchase-payments
+  /purchase/grn:
+    get:
+      parameters:
+      - default: 1
+        description: Page
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Page size
+        in: query
+        name: page_size
+        type: integer
+      - description: Filter by status
+        in: query
+        name: status
+        type: string
+      - description: DIRECT or AGAINST_PO
+        in: query
+        name: receive_type
+        type: string
+      - description: Filter by supplier
+        in: query
+        name: supplier_id
+        type: integer
+      - description: Filter by PO
+        in: query
+        name: po_id
+        type: integer
+      - description: Search grn_number / challan_no
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/grn.PaginatedGRNResponse'
+      security:
+      - BearerAuth: []
+      summary: List GRNs
+      tags:
+      - purchase--------------------- GRN
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: GRN payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/grn.CreateGRNRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/grn.GRNResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a GRN (saved as Pending, call /approve to confirm and update
+        stock)
+      tags:
+      - purchase--------------------- GRN
+  /purchase/grn/{id}:
+    get:
+      parameters:
+      - description: GRN ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/grn.GRNResponse'
+      security:
+      - BearerAuth: []
+      summary: Get GRN by ID
+      tags:
+      - purchase--------------------- GRN
+  /purchase/grn/{id}/approve:
+    patch:
+      parameters:
+      - description: GRN ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/grn.GRNResponse'
+      security:
+      - BearerAuth: []
+      summary: Approve a PENDING GRN (confirms receipt and updates location_stocks)
+      tags:
+      - purchase--------------------- GRN
+  /purchase/inventory-types:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inventorytypes.InventoryTypeResponse'
+            type: array
+      summary: Get all inventory types
+      tags:
+      - purchase--------------------------InventoryType
+    post:
+      consumes:
+      - application/json
+      description: Create inventory type with required and optional fields
+      parameters:
+      - description: inventory type creation payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/inventorytypes.CreateInventoryTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/inventorytypes.InventoryTypeResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new inventory type
+      tags:
+      - purchase--------------------------InventoryType
+  /purchase/inventory-types/{id}:
+    delete:
+      description: Soft delete an inventory type by ID
+      parameters:
+      - description: Inventory Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/inventorytypes.InventoryTypeResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete an inventory type
+      tags:
+      - purchase--------------------------InventoryType
+    patch:
+      consumes:
+      - application/json
+      description: Update inventory type fields (type_code, type_name, description,
+        is_active)
+      parameters:
+      - description: Inventory Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: inventory type update payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/inventorytypes.UpdateInventoryTypeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/inventorytypes.InventoryTypeResponse'
+      security:
+      - BearerAuth: []
+      summary: Update an inventory type
+      tags:
+      - purchase--------------------------InventoryType
+  /purchase/locations:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/location.LocationWithRelationsResponse'
+            type: array
+      summary: Get all locations
+      tags:
+      - purchase--------------------------Location
+    post:
+      consumes:
+      - application/json
+      description: Create location with required and optional fields
+      parameters:
+      - description: location creation payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/location.CreateLocationRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/location.LocationWithRelationsResponse'
+      security:
+      - BearerAuth: []
+      summary: 'Create a new location || create root location (without parent  "parent_id":
+        null,)'
+      tags:
+      - purchase--------------------------Location
+  /purchase/locations/{id}:
+    delete:
+      description: Soft delete location by ID
+      parameters:
+      - description: Location ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Delete location
+      tags:
+      - purchase--------------------------Location
+    patch:
+      consumes:
+      - application/json
+      description: Update location by ID
+      parameters:
+      - description: Location ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: location update payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/location.UpdateLocationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/location.LocationWithRelationsResponse'
+      security:
+      - BearerAuth: []
+      summary: Update location
+      tags:
+      - purchase--------------------------Location
+  /purchase/orders:
+    get:
+      parameters:
+      - default: 1
+        description: Page
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Page size
+        in: query
+        name: page_size
+        type: integer
+      - description: Filter by status
+        in: query
+        name: status
+        type: string
+      - description: Filter by supplier
+        in: query
+        name: supplier_id
+        type: integer
+      - description: Filter by order type
+        in: query
+        name: order_type
+        type: string
+      - description: Search in po_number / remarks
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchaseorder.PaginatedPOResponse'
+      security:
+      - BearerAuth: []
+      summary: List purchase orders
+      tags:
+      - purchase--------------------- Purchase Order
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: PO payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchaseorder.CreatePORequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/purchaseorder.POResponse'
+      security:
+      - BearerAuth: []
+      summary: 'Create a purchase order  then type selected REQUISITION_BASED("po_date":
+        "2026-05-02","order_type": "REQUISITION_BASED","requisition_id": 4,"office_id":
+        1,"location_id": 9,"supplier_id": 4)'
+      tags:
+      - purchase--------------------- Purchase Order
+  /purchase/orders/{id}:
+    delete:
+      parameters:
+      - description: PO ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Delete a purchase order (PENDING only)
+      tags:
+      - purchase--------------------- Purchase Order
+    get:
+      parameters:
+      - description: PO ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchaseorder.POResponse'
+      security:
+      - BearerAuth: []
+      summary: Get purchase order by ID
+      tags:
+      - purchase--------------------- Purchase Order
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: PO ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Fields to update
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchaseorder.UpdatePORequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchaseorder.POResponse'
+      security:
+      - BearerAuth: []
+      summary: Update a purchase order (Pending only)
+      tags:
+      - purchase--------------------- Purchase Order
+  /purchase/orders/{id}/status:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: PO ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Status payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchaseorder.UpdatePOStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchaseorder.POResponse'
+      security:
+      - BearerAuth: []
+      summary: Transition purchase order status
+      tags:
+      - purchase--------------------- Purchase Order
+  /purchase/orders/ordered-requisitions:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: List ORDERED requisitions with their linked PO ID
+      tags:
+      - purchase--------------------- Purchase Order
+  /purchase/payment-by-grn:
+    get:
+      parameters:
+      - default: 1
+        description: Page
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Records/page
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchasepayments.PaginatedResponse'
+      security:
+      - BearerAuth: []
+      summary: List payments by GRN
+      tags:
+      - purchase------------------------- purchase-payments
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchasepayments.CreatePaymentByGRNRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/purchasepayments.PaymentByGRNResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a payment by GRN
+      tags:
+      - purchase------------------------- purchase-payments
+  /purchase/projects:
+    get:
+      description: Retrieves projects with pagination and filters
+      parameters:
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 20
+        description: Items per page
+        in: query
+        name: limit
+        type: integer
+      - description: Project status
+        in: query
+        name: status
+        type: string
+      - description: Office ID
+        in: query
+        name: office_id
+        type: integer
+      - description: Manager ID
+        in: query
+        name: manager_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/projects.ListProjectsResponse'
+      security:
+      - BearerAuth: []
+      summary: List projects with pagination
+      tags:
+      - purchase ----------------------- Projects
+    post:
+      consumes:
+      - application/json
+      description: Creates a new project in the system
+      parameters:
+      - description: create project payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/projects.CreateProjectRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/projects.ProjectResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new project
+      tags:
+      - purchase ----------------------- Projects
+  /purchase/projects/{id}:
+    delete:
+      description: Soft deletes a project
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.APIResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete a project
+      tags:
+      - purchase ----------------------- Projects
+    patch:
+      consumes:
+      - application/json
+      description: Updates an existing project
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: update project payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/projects.UpdateProjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/projects.ProjectResponse'
+      security:
+      - BearerAuth: []
+      summary: Update a project
+      tags:
+      - purchase ----------------------- Projects
+  /purchase/projects/{id}/status:
+    put:
+      consumes:
+      - application/json
+      description: Changes the status of a project
+      parameters:
+      - description: Project ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: status payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/projects.ChangeStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/projects.ProjectResponse'
+      security:
+      - BearerAuth: []
+      summary: Change project status
+      tags:
+      - purchase ----------------------- Projects
+  /purchase/purchase-returns:
+    get:
+      parameters:
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Page size (max 100)
+        in: query
+        name: page_size
+        type: integer
+      - description: Filter by supplier
+        in: query
+        name: supplier_id
+        type: integer
+      - description: Filter by office
+        in: query
+        name: office_id
+        type: integer
+      - description: Filter by location
+        in: query
+        name: location_id
+        type: integer
+      - description: Filter by item
+        in: query
+        name: item_id
+        type: integer
+      - description: Search in remarks / return number
+        in: query
+        name: search
+        type: string
+      - default: desc
+        description: asc or desc
+        in: query
+        name: sort_order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchasereturn.PaginatedPurchaseReturnResponse'
+      summary: List purchase returns (paginated + filtered)
+      tags:
+      - purchase--------------------- Purchase Return
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Purchase return payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchasereturn.CreatePurchaseReturnRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/purchasereturn.PurchaseReturnResponse'
+      summary: Create a new purchase return
+      tags:
+      - purchase--------------------- Purchase Return
+  /purchase/requisitions:
+    get:
+      parameters:
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Page size (max 100)
+        in: query
+        name: page_size
+        type: integer
+      - description: Filter by status
+        in: query
+        name: status
+        type: string
+      - description: Filter by type
+        in: query
+        name: requisition_type
+        type: string
+      - description: Filter by department
+        in: query
+        name: department_id
+        type: integer
+      - description: Filter by project
+        in: query
+        name: project_id
+        type: integer
+      - description: Filter by employee
+        in: query
+        name: employee_id
+        type: integer
+      - description: Search in remarks / description / number
+        in: query
+        name: search
+        type: string
+      - default: created_at
+        description: Field to sort by
+        in: query
+        name: sort_by
+        type: string
+      - default: desc
+        description: asc or desc
+        in: query
+        name: sort_order
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/requisitions.PaginatedRequisitionResponse'
+      security:
+      - BearerAuth: []
+      summary: List requisitions (paginated + filtered)
+      tags:
+      - purchase--------------------- Requisition
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Requisition payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requisitions.CreateRequisitionRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/requisitions.RequisitionResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new requisition
+      tags:
+      - purchase--------------------- Requisition
+  /purchase/requisitions/{id}:
+    delete:
+      parameters:
+      - description: Requisition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Delete a requisition (pending or CANCELLED only)
+      tags:
+      - purchase--------------------- Requisition
+    get:
+      parameters:
+      - description: Requisition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/requisitions.RequisitionResponse'
+      security:
+      - BearerAuth: []
+      summary: Get a single requisition
+      tags:
+      - purchase--------------------- Requisition
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Requisition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Fields to update
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requisitions.UpdateRequisitionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/requisitions.RequisitionResponse'
+      security:
+      - BearerAuth: []
+      summary: Update a requisition (Pending status only-- when item update then must
+        be item_id is required)
+      tags:
+      - purchase--------------------- Requisition
+  /purchase/requisitions/{id}/history:
+    get:
+      parameters:
+      - description: Requisition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get requisition status history
+      tags:
+      - purchase--------------------- Requisition
+  /purchase/requisitions/{id}/status:
+    patch:
+      consumes:
+      - application/json
+      description: Validates allowed transitions and records status history.
+      parameters:
+      - description: Requisition ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Status transition payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/requisitions.UpdateRequisitionStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/requisitions.RequisitionResponse'
+      security:
+      - BearerAuth: []
+      summary: Transition requisition status
+      tags:
+      - purchase--------------------- Requisition
+  /purchase/requisitions/summary:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get requisition summary (counts by status)
+      tags:
+      - purchase--------------------- Requisition
+  /purchase/supplier-bills:
+    get:
+      parameters:
+      - default: 1
+        description: Page
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Records/page
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/purchasepayments.PaginatedResponse'
+      security:
+      - BearerAuth: []
+      summary: List supplier bills
+      tags:
+      - purchase------------------------- purchase-payments
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/purchasepayments.CreateSupplierBillRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/purchasepayments.SupplierBillResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a supplier bill
+      tags:
+      - purchase------------------------- purchase-payments
+  /uploads/files:
+    get:
+      description: Get all files uploaded by the user with optional search and pagination
+      parameters:
+      - description: Search query (optional)
+        in: query
+        name: q
+        type: string
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 20
+        description: Items per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.ListResponse'
+      security:
+      - BearerAuth: []
+      summary: Get user files
+      tags:
+      - Uploads----------Files
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload a single file to a specific folder or root
+      parameters:
+      - description: File to upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: Folder ID
+        in: formData
+        name: folder_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/uploads.FileResponse'
+      security:
+      - BearerAuth: []
+      summary: Upload a single file
+      tags:
+      - Uploads----------Files
+  /uploads/files/{file_id}:
+    delete:
+      description: Soft delete a file
+      parameters:
+      - description: File ID
+        in: path
+        name: file_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.MessageResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete file
+      tags:
+      - Uploads----------Files
+  /uploads/files/{file_id}/download:
+    get:
+      description: Download a file
+      parameters:
+      - description: File ID
+        in: path
+        name: file_id
+        required: true
+        type: integer
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+      security:
+      - BearerAuth: []
+      summary: Download file
+      tags:
+      - Uploads----------Files
+  /uploads/files/{file_id}/move:
+    post:
+      consumes:
+      - application/json
+      description: Move a file to a different folder
+      parameters:
+      - description: File ID
+        in: path
+        name: file_id
+        required: true
+        type: integer
+      - description: Destination folder
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/uploads.MoveFileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.FileResponse'
+      security:
+      - BearerAuth: []
+      summary: Move file to another folder
+      tags:
+      - Uploads----------Files
+  /uploads/files/{file_id}/restore:
+    post:
+      description: Restore a deleted file
+      parameters:
+      - description: File ID
+        in: path
+        name: file_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.MessageResponse'
+      security:
+      - BearerAuth: []
+      summary: Restore file
+      tags:
+      - Uploads----------Files
+  /uploads/files/batch:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload multiple files at once
+      parameters:
+      - collectionFormat: csv
+        description: Files to upload
+        in: formData
+        items:
+          type: file
+        name: files
+        required: true
+        type: array
+      - description: Folder ID
+        in: formData
+        name: folder_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/uploads.UploadResponse'
+      security:
+      - BearerAuth: []
+      summary: Upload multiple files
+      tags:
+      - Uploads----------Files
+  /uploads/folders:
+    get:
+      description: Get all root folders (folders without parent) for the user with
+        their child folders nested
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/uploads.FolderResponseWithChildren'
+            type: array
+      security:
+      - BearerAuth: []
+      summary: Get root folders with subfolders
+      tags:
+      - Uploads----------Folders
+    post:
+      consumes:
+      - application/json
+      description: Create a new folder in the specified parent or root
+      parameters:
+      - description: Folder details
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/uploads.CreateFolderRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/uploads.FolderResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/uploads.ErrorResponse'
+      security:
+      - BearerAuth: []
+      summary: Create a new folder No need parent id if you want to create root folder
+      tags:
+      - Uploads----------Folders
+  /uploads/folders/{folder_id}:
+    delete:
+      description: Soft delete a folder and its contents
+      parameters:
+      - description: Folder ID
+        in: path
+        name: folder_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.MessageResponse'
+      security:
+      - BearerAuth: []
+      summary: Delete folder
+      tags:
+      - Uploads----------Folders
+    patch:
+      consumes:
+      - application/json
+      description: Update folder details
+      parameters:
+      - description: Folder ID
+        in: path
+        name: folder_id
+        required: true
+        type: integer
+      - description: Update details
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/uploads.UpdateFolderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.FolderResponse'
+      security:
+      - BearerAuth: []
+      summary: Update folder
+      tags:
+      - Uploads----------Folders
+  /uploads/folders/{folder_id}/contents:
+    get:
+      description: Get subfolders and files in a folder with pagination. If no folder_id
+        is provided, returns root folder contents.
+      parameters:
+      - description: Folder ID (optional, defaults to root)
+        in: path
+        name: folder_id
+        type: integer
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 20
+        description: Items per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.FolderContentsResponse'
+      security:
+      - BearerAuth: []
+      summary: Get folder contents like files
+      tags:
+      - Uploads----------Folders
+  /uploads/folders/{folder_id}/restore:
+    post:
+      description: Restore a deleted folder
+      parameters:
+      - description: Folder ID
+        in: path
+        name: folder_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.MessageResponse'
+      security:
+      - BearerAuth: []
+      summary: Restore folder
+      tags:
+      - Uploads----------Folders
+  /uploads/folders/contents:
+    get:
+      description: Get subfolders and files in a folder with pagination. If no folder_id
+        is provided, returns root folder contents.
+      parameters:
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 20
+        description: Items per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/uploads.FolderContentsResponse'
+      security:
+      - BearerAuth: []
+      summary: Get folder contents like files
+      tags:
+      - Uploads----------Folders
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
